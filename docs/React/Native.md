@@ -18,4 +18,17 @@ registerComponent :: forall eff props. String -> ReactClass props -> Eff (platfo
 Register a React Native component from a given `ReactClass` with a name
 so it can be accessed from the native platform.
 
+#### `createElement`
+
+``` purescript
+createElement :: forall props. ReactClass props -> props -> Array ReactElement -> ReactElement
+```
+
+Create a `ReactElement` from a given `ReactClass`, an array of props and an
+array of children elements.
+
+This function had to be redefined in this package because the current
+version of React.createElement does not convert the expected props
+parameter to an object when calling the foreign createElement function.
+
 
