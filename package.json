@@ -33,5 +33,10 @@
   "dependencies": {
     "react": "^15.2.0",
     "react-native": "^0.29.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }
