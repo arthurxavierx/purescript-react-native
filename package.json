@@ -1,15 +1,16 @@
 {
   "name": "purescript-react-native",
-  "version": "0.0.0",
   "description": "Low-level React Native bindings for PureScript",
   "author": "Arthur Xavier <arthur.xavierx@gmail.com> (http://arthur-xavier.github.io/)",
   "main": "index.js",
   "scripts": {
-    "commit": "./node_modules/.bin/git-cz"
+    "commit": "./node_modules/.bin/git-cz",
+    "build": "psa \"src/**/*.purs\" \"bower_components/purescript-*/src/**/*.purs\" --censor-lib --strict",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:arthur-xavier/purescript-react-native.git"
+    "url": "https://github.com/arthur-xavier/purescript-react-native.git"
   },
   "keywords": [
     "purescript",
