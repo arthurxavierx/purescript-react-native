@@ -1,6 +1,10 @@
 // module React.Native.Components
 
 exports.viewClass = require('react-native').View;
+exports.textClass = require('react-native').Text;
+exports.text_ = function(text) {
+  return text;
+};
 
 function propsFromArray(props) {
   var result = {};
