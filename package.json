@@ -26,6 +26,7 @@
     "bower": "^1.7.9",
     "commitizen": "^2.8.2",
     "cz-conventional-changelog": "^1.1.6",
+    "purescript": "^0.9.1",
     "purescript-psa": "^0.3.9",
     "semantic-release": "^4.3.5"
   },
