@@ -1,12 +1,20 @@
 module React.Native.Components
-  ( view
+  ( createElement
+  , view
   , textView
   , text
   ) where
 
 import React (ReactClass, ReactElement)
 import React.DOM.Props (Props)
-import React.Native (createElement)
+
+-- | Create a `ReactElement` from a given `ReactClass`, an array of props and an
+-- | array of children elements.
+-- |
+-- | This function had to be redefined in this package because the current
+-- | version of React.createElement does not convert the expected props
+-- | parameter to an object when calling the foreign createElement function.
+foreign import createElement :: ∀ props. ReactClass props -> props -> Array ReactElement -> ReactElement
 
 foreign import viewClass :: ∀ props. ReactClass props
 foreign import textClass :: ∀ props. ReactClass props
