@@ -7,6 +7,7 @@ module React.Native.Components
 
 import React (ReactClass, ReactElement)
 import React.DOM.Props (Props)
+import Unsafe.Coerce (unsafeCoerce)
 
 -- | Create a `ReactElement` from a given `ReactClass`, an array of props and an
 -- | array of children elements.
@@ -18,7 +19,6 @@ foreign import createElement :: ∀ props. ReactClass props -> props -> Array Re
 
 foreign import viewClass :: ∀ props. ReactClass props
 foreign import textClass :: ∀ props. ReactClass props
-foreign import text_ :: String -> ReactElement
 
 -- | Create a `View` element from an array of `Props` and an array
 -- | of children `ReactElement`.
@@ -32,4 +32,4 @@ textView = createElement textClass
 
 -- | Create a `TextView` element with empty props and no children from a String.
 text :: String -> ReactElement
-text str = textView [] [text_ str]
+text str = textView [] [unsafeCoerce str]
