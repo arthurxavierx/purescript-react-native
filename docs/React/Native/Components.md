@@ -34,9 +34,9 @@ of children `ReactElement`.
 #### `text`
 
 ``` purescript
-text :: String -> ReactElement
+text :: Array Props -> String -> ReactElement
 ```
 
-Create a `TextView` element with empty props and no children from a String.
+Create a `TextView` element with props from a String.
 
 

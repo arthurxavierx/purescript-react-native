@@ -42,10 +42,10 @@ of children `ReactElement`.
 #### `text`
 
 ``` purescript
-text :: String -> ReactElement
+text :: Array Props -> String -> ReactElement
 ```
 
-Create a `TextView` element with empty props and no children from a String.
+Create a `TextView` element with props from a String.
 
 #### `createElement`
 
@@ -59,3 +59,4 @@ array of children elements.
 This function had to be redefined in this package because the current
 version of React.createElement does not convert the expected props
 parameter to an object when calling the foreign createElement function.
+

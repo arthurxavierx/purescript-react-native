@@ -30,6 +30,6 @@ view = createElement viewClass
 textView :: Array Props -> Array ReactElement -> ReactElement
 textView = createElement textClass
 
--- | Create a `TextView` element with empty props and no children from a String.
-text :: String -> ReactElement
-text str = textView [] [unsafeCoerce str]
+-- | Create a `TextView` element with props from a String.
+text :: Array Props -> String -> ReactElement
+text props str = textView props [unsafeCoerce str]
