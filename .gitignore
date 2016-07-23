@@ -3,4 +3,5 @@
 /.pulp-cache/
 /output/
 /.psci*
+/.psc-ide-port
 /src/.webpack.js
