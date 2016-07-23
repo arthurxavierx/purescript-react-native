@@ -9,6 +9,24 @@ data PLATFORM :: !
 This effect represents computations which may access or perform operations
 on the native platform.
 
+#### `Platform`
+
+``` purescript
+data Platform
+  = Android
+  | IOS
+```
+
+#### `platform`
+
+``` purescript
+platform :: Platform
+```
+
+Platform OS for the current build.
+This value remains constant throughout an application, and only changes
+on different builds for different platforms.
+
 #### `registerComponent`
 
 ``` purescript
