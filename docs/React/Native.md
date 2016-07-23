@@ -75,4 +75,12 @@ text :: Array Props -> String -> ReactElement
 
 Create a `TextView` element with props from a String.
 
+#### `image`
+
+``` purescript
+image :: Array Props -> ReactElement
+```
+
+Create an `Image` element with props and no children elements.
+
 
