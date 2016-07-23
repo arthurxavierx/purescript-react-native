@@ -102,4 +102,24 @@ allowFontScaling :: Boolean -> Props
 suppressHighlighting :: Boolean -> Props
 ```
 
+#### `Source`
+
+``` purescript
+data Source
+  = SourceId Int
+  | SourceUri String
+```
+
+#### `source`
+
+``` purescript
+source :: Source -> Props
+```
+
+#### `blurRadius`
+
+``` purescript
+blurRadius :: Number -> Props
+```
+
 
