@@ -36,3 +36,4 @@ exports.createElement = function(class_) {
 exports.viewClass = require('react-native').View;
 exports.textClass = require('react-native').Text;
 exports.imageClass = require('react-native').Image;
+exports.textInputClass = require('react-native').TextInput;
