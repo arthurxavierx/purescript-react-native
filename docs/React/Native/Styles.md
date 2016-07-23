@@ -1,63 +1,15 @@
 ## Module React.Native.Styles
 
-#### `Stylesheet`
-
-``` purescript
-data Stylesheet :: *
-```
-
-#### `unsafeCreateStylesheet`
-
-``` purescript
-unsafeCreateStylesheet :: Props -> Stylesheet
-```
-
-#### `unsafeReadProps`
-
-``` purescript
-unsafeReadProps :: forall a. a -> String -> Props
-```
-
-#### `unsafeMkPropsArray`
-
-``` purescript
-unsafeMkPropsArray :: String -> Array Props -> Props
-```
-
-#### `(.=)`
-
-``` purescript
-infixr 1 React.DOM.Props.unsafeMkProps as .=
-```
-
-#### `(:=)`
-
-``` purescript
-infixr 1 unsafeMkPropsArray as :=
-```
-
-#### `createStylesheet`
-
-``` purescript
-createStylesheet :: Array Props -> Stylesheet
-```
-
-#### `createStyle`
-
-``` purescript
-createStyle :: String -> Array Props -> Props
-```
-
 #### `style`
 
 ``` purescript
-style :: Stylesheet -> String -> Props
+style :: Array Props -> Props
 ```
 
 #### `styles`
 
 ``` purescript
-styles :: Stylesheet -> Array String -> Props
+styles :: Array (Array Props) -> Props
 ```
 
 #### `width`
