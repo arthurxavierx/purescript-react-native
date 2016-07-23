@@ -68,3 +68,13 @@ allowFontScaling = unsafeMkProps "allowFontScaling"
 
 suppressHighlighting :: Boolean -> Props
 suppressHighlighting = unsafeMkProps "suppressHighlighting"
+
+-- Image
+data Source = SourceId Int | SourceUri String
+
+source :: Source -> Props
+source (SourceId id) = unsafeMkProps "source" id
+source (SourceUri uri) = unsafeMkProps "source" {uri: uri}
+
+blurRadius :: Number -> Props
+blurRadius = unsafeMkProps "blurRadius"
