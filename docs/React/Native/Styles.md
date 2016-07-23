@@ -474,16 +474,10 @@ Show FontWeight
 fontWeight :: FontWeight -> Props
 ```
 
-#### `Shape`
-
-``` purescript
-type Shape = { width :: Number, height :: Number }
-```
-
 #### `textShadowOffset`
 
 ``` purescript
-textShadowOffset :: Shape -> Props
+textShadowOffset :: forall a. { width :: Number, height :: Number | a } -> Props
 ```
 
 #### `textShadowRadius`
@@ -641,7 +635,7 @@ shadowColor :: Color -> Props
 #### `shadowOffset`
 
 ``` purescript
-shadowOffset :: Shape -> Props
+shadowOffset :: forall a. { width :: Number, height :: Number | a } -> Props
 ```
 
 #### `shadowOpacity`
