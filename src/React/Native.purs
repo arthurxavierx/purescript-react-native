@@ -7,6 +7,7 @@ module React.Native
   , view
   , textView
   , text
+  , image
   ) where
 
 import Prelude
@@ -45,6 +46,7 @@ foreign import createElement :: ∀ props. ReactClass props -> props -> Array Re
 
 foreign import viewClass :: ∀ props. ReactClass props
 foreign import textClass :: ∀ props. ReactClass props
+foreign import imageClass :: ∀ props. ReactClass props
 
 -- | Create a `View` element from an array of `Props` and an array
 -- | of children `ReactElement`.
@@ -59,3 +61,7 @@ textView = createElement textClass
 -- | Create a `TextView` element with props from a String.
 text :: Array Props -> String -> ReactElement
 text props str = textView props [unsafeCoerce str]
+
+-- | Create an `Image` element with props and no children elements.
+image :: Array Props -> ReactElement
+image props = createElement imageClass props []
