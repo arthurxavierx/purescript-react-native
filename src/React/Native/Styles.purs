@@ -282,12 +282,7 @@ fontWeight :: FontWeight -> Props
 fontWeight = unsafeMkProps "fontWeight" <<< show
 
 -- Text
-type Shape =
-  { width :: Number
-  , height :: Number
-  }
-
-textShadowOffset :: Shape -> Props
+textShadowOffset :: ∀ a. { width :: Number, height :: Number | a } -> Props
 textShadowOffset = unsafeMkProps "textShadowOffset"
 
 textShadowRadius :: Number -> Props
@@ -378,7 +373,7 @@ overlayColor = unsafeMkProps "overlayColor" <<< toHexString
 shadowColor :: Color -> Props
 shadowColor = unsafeMkProps "shadowColor" <<< toHexString
 
-shadowOffset :: Shape -> Props
+shadowOffset ::  ∀ a. { width :: Number, height :: Number | a } -> Props
 shadowOffset = unsafeMkProps "shadowOffset"
 
 shadowOpacity :: Number -> Props
