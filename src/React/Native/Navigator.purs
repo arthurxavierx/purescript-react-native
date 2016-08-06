@@ -39,10 +39,10 @@ _navigationBar = unsafeMkProps "navigationBar"
 _navigator :: ReactElement -> Props
 _navigator = unsafeMkProps "navigator"
 
-onDidFocus :: forall eff props state result. (Route props -> EventHandlerContext eff props state result) -> Props
+onDidFocus :: ∀ eff props state result. (Route props -> EventHandlerContext eff props state result) -> Props
 onDidFocus = unsafeMkProps "onDidFocus" <<< handle
 
-onWillFocus :: forall eff props state result. (Route props -> EventHandlerContext eff props state result) -> Props
+onWillFocus :: ∀ eff props state result. (Route props -> EventHandlerContext eff props state result) -> Props
 onWillFocus = unsafeMkProps "onWillFocus" <<< handle
 
 type RenderScene props = Route props -> ReactElement -> ReactElement
