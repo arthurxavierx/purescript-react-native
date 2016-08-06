@@ -5,7 +5,6 @@ import Color (toHexString, Color)
 import React (EventHandlerContext, Event, handle, ReactElement, ReactClass)
 import React.DOM.Props (unsafeMkProps, Props)
 import React.Native (createElement)
-import Unsafe.Coerce (unsafeCoerce)
 
 foreign import textInputClass :: ∀ props. ReactClass props
 

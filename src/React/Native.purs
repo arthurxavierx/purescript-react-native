@@ -4,17 +4,11 @@ module React.Native
   , platform
   , registerComponent
   , createElement
-  , view
-  , textView
-  , text
-  , image
   ) where
 
 import Prelude
 import Control.Monad.Eff (Eff)
 import React (ReactElement, ReactClass)
-import React.DOM.Props (Props)
-import Unsafe.Coerce (unsafeCoerce)
 
 foreign import platformName :: String
 
