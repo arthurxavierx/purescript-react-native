@@ -1,6 +1,5 @@
 module React.Native.Navigator.Route where
 
-import Data.Maybe (Maybe)
 import React (ReactClass)
 import React.DOM.Props (Props)
 
@@ -9,7 +8,7 @@ type Route props =
   , title :: String
   , sceneConfig :: SceneConfig
   , component :: ReactClass props
-  , passProps :: Maybe Props
+  , passProps :: Props
   }
 
 -- SceneConfig
