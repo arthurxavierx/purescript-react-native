@@ -2,7 +2,8 @@ module React.Native.TouchableHighlight where
 
 import Prelude
 import Color (Color, toHexString)
-import React (handle, EventHandlerContext, Event, createElement, ReactElement, ReactClass)
+import React (handle, EventHandlerContext, Event, ReactElement, ReactClass)
+import React.Native (createElement)
 import React.DOM.Props (unsafeMkProps, Props)
 
 foreign import touchableHighlightClass :: ∀ props. ReactClass props
