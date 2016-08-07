@@ -11,6 +11,7 @@ import React.Native.Image (ImageSource, toForeignImageSource)
 
 foreign import toolbarAndroidClass :: ∀ props. ReactClass props
 
+-- | Create a `ToolbarAndroid` component with props and children.
 toolbarAndroid :: Array Action -> Array Props -> ReactElement
 toolbarAndroid actions props = createElement toolbarAndroidClass props' []
   where

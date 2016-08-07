@@ -1,14 +1,5 @@
 ## Module React.Native
 
-#### `PLATFORM`
-
-``` purescript
-data PLATFORM :: !
-```
-
-This effect represents computations which may access or perform operations
-on the native platform.
-
 #### `Platform`
 
 ``` purescript
@@ -26,6 +17,15 @@ platform :: Platform
 Platform OS for the current build.
 This value remains constant throughout an application, and only changes
 on different builds for different platforms.
+
+#### `PLATFORM`
+
+``` purescript
+data PLATFORM :: !
+```
+
+This effect represents computations which may access or perform operations
+on the native platform.
 
 #### `registerComponent`
 
@@ -48,39 +48,5 @@ array of children elements.
 This function had to be redefined in this package because the current
 version of React.createElement does not convert the expected props
 parameter to an object when calling the foreign createElement function.
-
-#### `view`
-
-``` purescript
-view :: Array Props -> Array ReactElement -> ReactElement
-```
-
-Create a `View` element from an array of `Props` and an array
-of children `ReactElement`.
-
-#### `textView`
-
-``` purescript
-textView :: Array Props -> Array ReactElement -> ReactElement
-```
-
-Create a `TextView` element from an array of `Props` and an array
-of children `ReactElement`.
-
-#### `text`
-
-``` purescript
-text :: Array Props -> String -> ReactElement
-```
-
-Create a `TextView` element with props from a String.
-
-#### `image`
-
-``` purescript
-image :: Array Props -> ReactElement
-```
-
-Create an `Image` element with props and no child elements.
 
 

@@ -8,6 +8,7 @@ import React.DOM.Props (unsafeMkProps, Props)
 
 foreign import touchableHighlightClass :: ∀ props. ReactClass props
 
+-- | Create a `TouchableHighlight` component with props and children.
 touchableHighlight :: Array Props -> Array ReactElement -> ReactElement
 touchableHighlight = createElement touchableHighlightClass
 

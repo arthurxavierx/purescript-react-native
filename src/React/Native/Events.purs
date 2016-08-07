@@ -1,3 +1,5 @@
+-- | The Events module provides event definitions that are common to some
+-- | React Native elements.
 module React.Native.Events where
 
 import Prelude

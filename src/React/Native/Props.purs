@@ -1,3 +1,5 @@
+-- | The Props module provides definitions of Props functions that are common
+-- | to many React Native elements.
 module React.Native.Props where
 
 import React.DOM.Props (Props, unsafeMkProps)
