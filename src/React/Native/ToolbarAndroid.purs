@@ -4,8 +4,9 @@ import Prelude
 import Color (toHexString, Color)
 import Data.Maybe (Maybe)
 import Data.Undefinable (toUndefinable)
-import React (Event, handle, EventHandlerContext, ReactClass, createElement, ReactElement)
+import React (Event, handle, EventHandlerContext, ReactClass, ReactElement)
 import React.DOM.Props (unsafeMkProps, Props)
+import React.Native (createElement)
 import React.Native.Image (ImageSource, toForeignImageSource)
 
 foreign import toolbarAndroidClass :: ∀ props. ReactClass props
