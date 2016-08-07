@@ -4,6 +4,7 @@ import Prelude
 import React (EventHandlerContext, Event, handle, ReactElement, ReactClass)
 import React.DOM.Props (unsafeMkProps, Props)
 import React.Native (createElement)
+import Unsafe.Coerce (unsafeCoerce)
 
 foreign import imageClass :: ∀ props. ReactClass props
 
@@ -12,11 +13,16 @@ image :: Array Props -> ReactElement
 image props = createElement imageClass props []
 
 -- Props
-data Source = SourceId Int | SourceUri String
+data ImageSource = ImageId Int | ImageUri String
 
-source :: Source -> Props
-source (SourceId id) = unsafeMkProps "source" id
-source (SourceUri uri) = unsafeMkProps "source" {uri: uri}
+foreign import data ForeignImageSource :: *
+
+toForeignImageSource :: ImageSource -> ForeignImageSource
+toForeignImageSource (ImageId id) = unsafeCoerce id
+toForeignImageSource (ImageUri uri) = unsafeCoerce {uri: uri}
+
+source :: ImageSource -> Props
+source = unsafeMkProps "source" <<< toForeignImageSource
 
 blurRadius :: Number -> Props
 blurRadius = unsafeMkProps "blurRadius"
