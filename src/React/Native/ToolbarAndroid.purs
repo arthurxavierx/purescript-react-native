@@ -5,7 +5,7 @@ import Color (toHexString, Color)
 import Data.Maybe (Maybe)
 import Data.Undefinable (Undefinable, toMaybe, toUndefinable)
 import React (createElement, Event, handle, EventHandlerContext, ReactClass, ReactElement)
-import React.Native.Image (ImageSource, toForeignImageSource)
+import React.Native.Image (ImageSource)
 import React.Native.Props (unsafeMkProps, unsafeFromPropsArray, Props)
 
 foreign import data ToolbarAndroid :: *
@@ -37,7 +37,7 @@ actions = unsafeMkProps "actions" <<< map convertAction
   where
     convertAction a =
       { title: a.title
-      , icon: mapUndefinable toForeignImageSource (toUndefinable a.icon)
+      , icon: toUndefinable a.icon
       , show: mapUndefinable show (toUndefinable a.show)
       , showWithText: toUndefinable a.showWithText
       }
@@ -51,13 +51,13 @@ contentInsetStart :: Number -> Props ToolbarAndroid
 contentInsetStart = unsafeMkProps "contentInsetStart"
 
 logo :: ImageSource -> Props ToolbarAndroid
-logo = unsafeMkProps "logo" <<< toForeignImageSource
+logo = unsafeMkProps "logo"
 
 navIcon :: ImageSource -> Props ToolbarAndroid
-navIcon = unsafeMkProps "navIcon" <<< toForeignImageSource
+navIcon = unsafeMkProps "navIcon"
 
 overflowIcon :: ImageSource -> Props ToolbarAndroid
-overflowIcon = unsafeMkProps "overflowIcon" <<< toForeignImageSource
+overflowIcon = unsafeMkProps "overflowIcon"
 
 rtl :: Boolean -> Props ToolbarAndroid
 rtl = unsafeMkProps "rtl"

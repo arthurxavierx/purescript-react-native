@@ -3,7 +3,6 @@ module React.Native.Image where
 import Prelude
 import React (createElement, EventHandlerContext, Event, handle, ReactElement, ReactClass)
 import React.Native.Props (unsafeFromPropsArray, unsafeMkProps, Props)
-import Unsafe.Coerce (unsafeCoerce)
 
 foreign import data Image :: *
 foreign import imageClass :: ReactClass (Props Image)
@@ -13,16 +12,13 @@ image :: Array (Props Image) -> ReactElement
 image props = createElement imageClass (unsafeFromPropsArray props) []
 
 -- Props
-data ImageSource = ImageId Int | ImageUri String
+foreign import data ImageSource :: *
 
-foreign import data ForeignImageSource :: *
-
-toForeignImageSource :: ImageSource -> ForeignImageSource
-toForeignImageSource (ImageId id) = unsafeCoerce id
-toForeignImageSource (ImageUri uri) = unsafeCoerce {uri: uri}
+foreign import loadImage :: String -> ImageSource
+foreign import loadImageUri :: String -> ImageSource
 
 source :: ImageSource -> Props Image
-source = unsafeMkProps "source" <<< toForeignImageSource
+source = unsafeMkProps "source"
 
 blurRadius :: Number -> Props Image
 blurRadius = unsafeMkProps "blurRadius"
