@@ -23,7 +23,7 @@
     "purescript-react": "^1.1.0",
     "purescript-colors": "^1.0.1",
     "purescript-aff": "^1.1.0",
-    "purescript-undefinable": "git://github.com/arthur-xavier/purescript-undefinable.git#master"
+    "purescript-undefinable": "^1.0.0"
   },
   "devDependencies": {
     "purescript-psci-support": "^1.0.0"

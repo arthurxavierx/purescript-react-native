@@ -3,7 +3,7 @@ module React.Native.ToolbarAndroid where
 import Prelude
 import Color (toHexString, Color)
 import Data.Maybe (Maybe)
-import Data.Undefinable (toUndefinable)
+import Data.Undefinable (Undefinable, toMaybe, toUndefinable)
 import React (Event, handle, EventHandlerContext, ReactClass, ReactElement)
 import React.DOM.Props (unsafeMkProps, Props)
 import React.Native (createElement)
@@ -13,16 +13,9 @@ foreign import toolbarAndroidClass :: ∀ props. ReactClass props
 
 -- | Create a `ToolbarAndroid` component with props and children.
 toolbarAndroid :: Array Action -> Array Props -> ReactElement
-toolbarAndroid actions props = createElement toolbarAndroidClass props' []
+toolbarAndroid actions' props = createElement toolbarAndroidClass props []
   where
-    props' = props <> [actionsProps]
-    actionsProps = unsafeMkProps "actions" $ convertAction <$> actions
-    convertAction a =
-      { title: a.title
-      , icon: toForeignImageSource <$> toUndefinable a.icon
-      , show: show <$> toUndefinable a.show
-      , showWithText: toUndefinable a.showWithText
-      }
+    props' = props <> [actions actions']
 
 data ActionShow = Always | IfRoom | Never
 
@@ -39,6 +32,18 @@ type Action =
   }
 
 -- Props
+actions :: Array Action -> Props
+actions = unsafeMkProps "actions" <<< map convertAction
+  where
+    convertAction a =
+      { title: a.title
+      , icon: mapUndefinable toForeignImageSource (toUndefinable a.icon)
+      , show: mapUndefinable show (toUndefinable a.show)
+      , showWithText: toUndefinable a.showWithText
+      }
+    mapUndefinable :: forall a b. (a -> b) -> Undefinable a -> Undefinable b
+    mapUndefinable f = toUndefinable <<< map f <<< toMaybe
+
 contentInsetEnd :: Number -> Props
 contentInsetEnd = unsafeMkProps "contentInsetEnd"
 
