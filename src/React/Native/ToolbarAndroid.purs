@@ -4,18 +4,18 @@ import Prelude
 import Color (toHexString, Color)
 import Data.Maybe (Maybe)
 import Data.Undefinable (Undefinable, toMaybe, toUndefinable)
-import React (Event, handle, EventHandlerContext, ReactClass, ReactElement)
-import React.DOM.Props (unsafeMkProps, Props)
-import React.Native (createElement)
+import React (createElement, Event, handle, EventHandlerContext, ReactClass, ReactElement)
 import React.Native.Image (ImageSource, toForeignImageSource)
+import React.Native.Props (unsafeMkProps, unsafeFromPropsArray, Props)
 
-foreign import toolbarAndroidClass :: ∀ props. ReactClass props
+foreign import data ToolbarAndroid :: *
+foreign import toolbarAndroidClass :: ReactClass (Props ToolbarAndroid)
 
 -- | Create a `ToolbarAndroid` component with props and children.
-toolbarAndroid :: Array Action -> Array Props -> ReactElement
-toolbarAndroid actions' props = createElement toolbarAndroidClass props []
+toolbarAndroid :: Array Action -> Array (Props ToolbarAndroid) -> ReactElement
+toolbarAndroid actions' props = createElement toolbarAndroidClass props' []
   where
-    props' = props <> [actions actions']
+    props' = unsafeFromPropsArray $ props <> [actions actions']
 
 data ActionShow = Always | IfRoom | Never
 
@@ -32,7 +32,7 @@ type Action =
   }
 
 -- Props
-actions :: Array Action -> Props
+actions :: Array Action -> Props ToolbarAndroid
 actions = unsafeMkProps "actions" <<< map convertAction
   where
     convertAction a =
@@ -44,39 +44,39 @@ actions = unsafeMkProps "actions" <<< map convertAction
     mapUndefinable :: forall a b. (a -> b) -> Undefinable a -> Undefinable b
     mapUndefinable f = toUndefinable <<< map f <<< toMaybe
 
-contentInsetEnd :: Number -> Props
+contentInsetEnd :: Number -> Props ToolbarAndroid
 contentInsetEnd = unsafeMkProps "contentInsetEnd"
 
-contentInsetStart :: Number -> Props
+contentInsetStart :: Number -> Props ToolbarAndroid
 contentInsetStart = unsafeMkProps "contentInsetStart"
 
-logo :: ImageSource -> Props
+logo :: ImageSource -> Props ToolbarAndroid
 logo = unsafeMkProps "logo" <<< toForeignImageSource
 
-navIcon :: ImageSource -> Props
+navIcon :: ImageSource -> Props ToolbarAndroid
 navIcon = unsafeMkProps "navIcon" <<< toForeignImageSource
 
-overflowIcon :: ImageSource -> Props
+overflowIcon :: ImageSource -> Props ToolbarAndroid
 overflowIcon = unsafeMkProps "overflowIcon" <<< toForeignImageSource
 
-rtl :: Boolean -> Props
+rtl :: Boolean -> Props ToolbarAndroid
 rtl = unsafeMkProps "rtl"
 
-subtitle :: String -> Props
+subtitle :: String -> Props ToolbarAndroid
 subtitle = unsafeMkProps "subtitle"
 
-subtitleColor :: Color -> Props
+subtitleColor :: Color -> Props ToolbarAndroid
 subtitleColor = unsafeMkProps "subtitleColor" <<< toHexString
 
-title :: String -> Props
+title :: String -> Props ToolbarAndroid
 title = unsafeMkProps "title"
 
-titleColor :: Color -> Props
+titleColor :: Color -> Props ToolbarAndroid
 titleColor = unsafeMkProps "titleColor" <<< toHexString
 
 -- Events
-onActionSelected :: ∀ eff props state result. (Int -> EventHandlerContext eff props state result) -> Props
+onActionSelected :: ∀ eff props state result. (Int -> EventHandlerContext eff props state result) -> Props ToolbarAndroid
 onActionSelected = unsafeMkProps "onActionSelected" <<< handle
 
-onIconClicked :: ∀ eff props state result. (Event -> EventHandlerContext eff props state result) -> Props
+onIconClicked :: ∀ eff props state result. (Event -> EventHandlerContext eff props state result) -> Props ToolbarAndroid
 onIconClicked = unsafeMkProps "onIconClicked" <<< handle

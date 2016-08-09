@@ -4,7 +4,7 @@ module React.Native.Events where
 
 import Prelude
 import React (EventHandlerContext, handle)
-import React.DOM.Props (Props, unsafeMkProps)
+import React.Native.Props (Props, unsafeMkProps)
 
 type LayoutEvent =
   { nativeEvent ::
@@ -17,5 +17,5 @@ type LayoutEvent =
     }
   }
 
-onLayout :: ∀ eff props state result. (LayoutEvent -> EventHandlerContext eff props state result) -> Props
+onLayout :: ∀ a eff props state result. (LayoutEvent -> EventHandlerContext eff props state result) -> Props a
 onLayout = unsafeMkProps "onLayout" <<< handle

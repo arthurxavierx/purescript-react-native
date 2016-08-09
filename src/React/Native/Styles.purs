@@ -2,31 +2,33 @@ module React.Native.Styles where
 
 import Prelude
 import Color (toHexString, Color)
-import React.DOM.Props (Props, unsafeFromPropsArray, unsafeMkProps)
+import React.Native.Props (Props, unsafeFromPropsArray, unsafeMkProps)
 
-style :: Array Props -> Props
+foreign import data Style :: *
+
+style :: ∀ a. Array (Props Style) -> Props a
 style = unsafeMkProps "style" <<< unsafeFromPropsArray
 
-styles :: Array (Array Props) -> Props
+styles :: ∀ a. Array (Array (Props Style)) -> Props a
 styles = unsafeMkProps "style" <<< map (unsafeFromPropsArray)
 
 -- Dimensions
-width :: Number -> Props
+width :: Number -> Props Style
 width = unsafeMkProps "width"
 
-height :: Number -> Props
+height :: Number -> Props Style
 height = unsafeMkProps "height"
 
-maxWidth :: Number -> Props
+maxWidth :: Number -> Props Style
 maxWidth = unsafeMkProps "maxWidth"
 
-minWidth :: Number -> Props
+minWidth :: Number -> Props Style
 minWidth = unsafeMkProps "minWidth"
 
-maxHeight :: Number -> Props
+maxHeight :: Number -> Props Style
 maxHeight = unsafeMkProps "maxHeight"
 
-minHeight :: Number -> Props
+minHeight :: Number -> Props Style
 minHeight = unsafeMkProps "minHeight"
 
 -- Positioning
@@ -36,23 +38,23 @@ instance showPosition :: Show Position where
   show Relative = "relative"
   show Absolute = "absolute"
 
-position :: Position -> Props
+position :: Position -> Props Style
 position = unsafeMkProps "position" <<< show
 
-top :: Number -> Props
+top :: Number -> Props Style
 top = unsafeMkProps "top"
 
-right :: Number -> Props
+right :: Number -> Props Style
 right = unsafeMkProps "right"
 
-bottom :: Number -> Props
+bottom :: Number -> Props Style
 bottom = unsafeMkProps "bottom"
 
-left :: Number -> Props
+left :: Number -> Props Style
 left = unsafeMkProps "left"
 
 -- Flexbox
-flex :: Int -> Props
+flex :: Int -> Props Style
 flex = unsafeMkProps "flex"
 
 data FlexDirection = Row | RowReverse | Column | ColumnReverse
@@ -63,7 +65,7 @@ instance showFlexDirection :: Show FlexDirection where
   show Column = "column"
   show ColumnReverse = "column-reverse"
 
-flexDirection :: FlexDirection -> Props
+flexDirection :: FlexDirection -> Props Style
 flexDirection = unsafeMkProps "flexDirection" <<< show
 
 data FlexWrap = NoWrap | Wrap
@@ -72,7 +74,7 @@ instance showFlexWrap :: Show FlexWrap where
   show NoWrap = "nowrap"
   show Wrap = "wrap"
 
-flexWrap :: FlexWrap -> Props
+flexWrap :: FlexWrap -> Props Style
 flexWrap = unsafeMkProps "flexWrap" <<< show
 
 data FlexAlign
@@ -93,99 +95,99 @@ instance showFlexAlign :: Show FlexAlign where
   show SpaceBetween = "space-between"
   show SpaceAround = "space-around"
 
-justifyContent :: FlexAlign -> Props
+justifyContent :: FlexAlign -> Props Style
 justifyContent FlexAuto = unsafeMkProps "justifyContent" "flex-start"
 justifyContent FlexStretch = unsafeMkProps "justifyContent" "flex-start"
 justifyContent a = unsafeMkProps "justifyContent" (show a)
 
-alignItems :: FlexAlign -> Props
+alignItems :: FlexAlign -> Props Style
 alignItems FlexAuto = unsafeMkProps "alignItems" "flex-start"
 alignItems SpaceBetween = unsafeMkProps "alignItems" "flex-start"
 alignItems SpaceAround = unsafeMkProps "alignItems" "flex-start"
 alignItems a = unsafeMkProps "alignItems" (show a)
 
-alignSelf :: FlexAlign -> Props
+alignSelf :: FlexAlign -> Props Style
 alignSelf SpaceBetween = unsafeMkProps "alignSelf" "flex-start"
 alignSelf SpaceAround = unsafeMkProps "alignSelf" "flex-start"
 alignSelf a = unsafeMkProps "alignSelf" (show a)
 
 -- z-index
-zIndex :: Int -> Props
+zIndex :: Int -> Props Style
 zIndex = unsafeMkProps "zIndex"
 
 -- Margin
-margin :: Number -> Props
+margin :: Number -> Props Style
 margin = unsafeMkProps "margin"
 
-marginVertical :: Number -> Props
+marginVertical :: Number -> Props Style
 marginVertical = unsafeMkProps "marginVertical"
 
-marginHorizontal :: Number -> Props
+marginHorizontal :: Number -> Props Style
 marginHorizontal = unsafeMkProps "marginHorizontal"
 
-marginTop :: Number -> Props
+marginTop :: Number -> Props Style
 marginTop = unsafeMkProps "marginTop"
 
-marginRight :: Number -> Props
+marginRight :: Number -> Props Style
 marginRight = unsafeMkProps "marginRight"
 
-marginBottom :: Number -> Props
+marginBottom :: Number -> Props Style
 marginBottom = unsafeMkProps "marginBottom"
 
-marginLeft :: Number -> Props
+marginLeft :: Number -> Props Style
 marginLeft = unsafeMkProps "marginLeft"
 
 -- Padding
-padding :: Number -> Props
+padding :: Number -> Props Style
 padding = unsafeMkProps "padding"
 
-paddingVertical :: Number -> Props
+paddingVertical :: Number -> Props Style
 paddingVertical = unsafeMkProps "paddingVertical"
 
-paddingHorizontal :: Number -> Props
+paddingHorizontal :: Number -> Props Style
 paddingHorizontal = unsafeMkProps "paddingHorizontal"
 
-paddingTop :: Number -> Props
+paddingTop :: Number -> Props Style
 paddingTop = unsafeMkProps "paddingTop"
 
-paddingRight :: Number -> Props
+paddingRight :: Number -> Props Style
 paddingRight = unsafeMkProps "paddingRight"
 
-paddingBottom :: Number -> Props
+paddingBottom :: Number -> Props Style
 paddingBottom = unsafeMkProps "paddingBottom"
 
-paddingLeft :: Number -> Props
+paddingLeft :: Number -> Props Style
 paddingLeft = unsafeMkProps "paddingLeft"
 
 -- Border
-borderColor :: Color -> Props
+borderColor :: Color -> Props Style
 borderColor = unsafeMkProps "borderColor" <<< toHexString
 
-borderTopColor :: Color -> Props
+borderTopColor :: Color -> Props Style
 borderTopColor = unsafeMkProps "borderTopColor" <<< toHexString
 
-borderRightColor :: Color -> Props
+borderRightColor :: Color -> Props Style
 borderRightColor = unsafeMkProps "borderRightColor" <<< toHexString
 
-borderBottomColor :: Color -> Props
+borderBottomColor :: Color -> Props Style
 borderBottomColor = unsafeMkProps "borderBottomColor" <<< toHexString
 
-borderLeftColor :: Color -> Props
+borderLeftColor :: Color -> Props Style
 borderLeftColor = unsafeMkProps "borderLeftColor" <<< toHexString
 
-borderRadius :: Number -> Props
+borderRadius :: Number -> Props Style
 borderRadius = unsafeMkProps "borderRadius"
 
-borderTopLeftRadius :: Number -> Props
+borderTopLeftRadius :: Number -> Props Style
 borderTopLeftRadius = unsafeMkProps "borderTopLeftRadius"
 
-borderTopRightRadius :: Number -> Props
+borderTopRightRadius :: Number -> Props Style
 borderTopRightRadius = unsafeMkProps "borderTopRightRadius"
 
-borderBottomLeftRadius :: Number -> Props
+borderBottomLeftRadius :: Number -> Props Style
 borderBottomLeftRadius = unsafeMkProps "borderBottomLeftRadius"
 
-borderBottomRightRadius :: Number -> Props
+borderBottomRightRadius :: Number -> Props Style
 borderBottomRightRadius = unsafeMkProps "borderBottomRightRadius"
 
 data BorderStyle = Solid | Dotted | Dashed | Double
@@ -196,27 +198,27 @@ instance showBorderStyle :: Show BorderStyle where
   show Dashed = "dashed"
   show Double = "double"
 
-borderStyle :: BorderStyle -> Props
+borderStyle :: BorderStyle -> Props Style
 borderStyle Double = unsafeMkProps "borderStyle" "solid"
 borderStyle s = unsafeMkProps "borderStyle" (show s)
 
-borderWidth :: Number -> Props
+borderWidth :: Number -> Props Style
 borderWidth = unsafeMkProps "borderWidth"
 
-borderTopWidth :: Number -> Props
+borderTopWidth :: Number -> Props Style
 borderTopWidth = unsafeMkProps "borderTopWidth"
 
-borderRightWidth :: Number -> Props
+borderRightWidth :: Number -> Props Style
 borderRightWidth = unsafeMkProps "borderRightWidth"
 
-borderBottomWidth :: Number -> Props
+borderBottomWidth :: Number -> Props Style
 borderBottomWidth = unsafeMkProps "borderBottomWidth"
 
-borderLeftWidth :: Number -> Props
+borderLeftWidth :: Number -> Props Style
 borderLeftWidth = unsafeMkProps "borderLeftWidth"
 
 -- Opacity
-opacity :: Number -> Props
+opacity :: Number -> Props Style
 opacity = unsafeMkProps "opacity"
 
 -- Visibility
@@ -226,25 +228,25 @@ instance showVisibility :: Show Visibility where
   show Visible = "visible"
   show Hidden = "hidden"
 
-overflow :: Visibility -> Props
+overflow :: Visibility -> Props Style
 overflow = unsafeMkProps "overflow" <<< show
 
 -- Elevation
-elevation :: Int -> Props
+elevation :: Int -> Props Style
 elevation = unsafeMkProps "elevation"
 
 -- Color
-color :: Color -> Props
+color :: Color -> Props Style
 color = unsafeMkProps "color" <<< toHexString
 
-backgroundColor :: Color -> Props
+backgroundColor :: Color -> Props Style
 backgroundColor = unsafeMkProps "backgroundColor" <<< toHexString
 
 -- Font
-fontFamily :: String -> Props
+fontFamily :: String -> Props Style
 fontFamily = unsafeMkProps "fontFamily"
 
-fontSize :: Number -> Props
+fontSize :: Number -> Props Style
 fontSize = unsafeMkProps "fontSize"
 
 data FontStyle = Normal | Italic
@@ -253,7 +255,7 @@ instance showFontStyle :: Show FontStyle where
   show Normal = "normal"
   show Italic = "italic"
 
-fontStyle :: FontStyle -> Props
+fontStyle :: FontStyle -> Props Style
 fontStyle = unsafeMkProps "fontStyle"
 
 data FontWeight
@@ -278,23 +280,23 @@ instance showFontWeight :: Show FontWeight where
   show ExtraBold = "800"
   show Black = "900"
 
-fontWeight :: FontWeight -> Props
+fontWeight :: FontWeight -> Props Style
 fontWeight = unsafeMkProps "fontWeight" <<< show
 
 -- Text
-textShadowOffset :: ∀ a. { width :: Number, height :: Number | a } -> Props
+textShadowOffset :: ∀ a. { width :: Number, height :: Number | a } -> Props Style
 textShadowOffset = unsafeMkProps "textShadowOffset"
 
-textShadowRadius :: Number -> Props
+textShadowRadius :: Number -> Props Style
 textShadowRadius = unsafeMkProps "textShadowRadius"
 
-textShadowColor :: Color -> Props
+textShadowColor :: Color -> Props Style
 textShadowColor = unsafeMkProps "textShadowColor"
 
-letterSpacing :: Number -> Props
+letterSpacing :: Number -> Props Style
 letterSpacing = unsafeMkProps "letterSpacing"
 
-lineHeight :: Number -> Props
+lineHeight :: Number -> Props Style
 lineHeight = unsafeMkProps "lineHeight"
 
 data Alignment = Auto | Top | Right | Bottom | Left | Center | Justify
@@ -308,14 +310,14 @@ instance showAlignment :: Show Alignment where
   show Center = "center"
   show Justify = "justify"
 
-textAlign :: Alignment -> Props
+textAlign :: Alignment -> Props Style
 textAlign Left = unsafeMkProps "textAlign" "left"
 textAlign Right = unsafeMkProps "textAlign" "right"
 textAlign Center = unsafeMkProps "textAlign" "center"
 textAlign Justify = unsafeMkProps "textAlign" "justify"
 textAlign _ = unsafeMkProps "textAlign" "auto"
 
-textAlignVertical :: Alignment -> Props
+textAlignVertical :: Alignment -> Props Style
 textAlignVertical Top = unsafeMkProps "textAlignVertical" "top"
 textAlignVertical Bottom = unsafeMkProps "textAlignVertical" "bottom"
 textAlignVertical Center = unsafeMkProps "textAlignVertical" "center"
@@ -329,13 +331,13 @@ instance showTextDecorationLine :: Show TextDecorationLine where
   show LineThrough = "line-through"
   show UnderlineLineThrough = "underline line-through"
 
-textDecorationLine :: TextDecorationLine -> Props
+textDecorationLine :: TextDecorationLine -> Props Style
 textDecorationLine = unsafeMkProps "textDecorationLine" <<< show
 
-textDecorationStyle :: BorderStyle -> Props
+textDecorationStyle :: BorderStyle -> Props Style
 textDecorationStyle = unsafeMkProps "textDecorationStyle" <<< show
 
-textDecorationColor :: Color -> Props
+textDecorationColor :: Color -> Props Style
 textDecorationColor = unsafeMkProps "textDecorationColor" <<< toHexString
 
 data WritingDirection = WritingDirectionAuto | LTR | RTL
@@ -345,7 +347,7 @@ instance showWritingDirection :: Show WritingDirection where
   show LTR = "ltr"
   show RTL = "rtl"
 
-writingDirection :: WritingDirection -> Props
+writingDirection :: WritingDirection -> Props Style
 writingDirection = unsafeMkProps "writingDirection" <<< show
 
 -- Image
@@ -357,29 +359,29 @@ instance showResizeMode :: Show ResizeMode where
   show ResizeStretch = "stretch"
   show ResizeCenter = "center"
 
-resizeMode :: ResizeMode -> Props
+resizeMode :: ResizeMode -> Props Style
 resizeMode = unsafeMkProps "resizeMode" <<< show
 
-backfaceVisibility :: Visibility -> Props
+backfaceVisibility :: Visibility -> Props Style
 backfaceVisibility = unsafeMkProps "backfaceVisibility" <<< show
 
-tintColor :: Color -> Props
+tintColor :: Color -> Props Style
 tintColor = unsafeMkProps "tintColor" <<< toHexString
 
-overlayColor :: Color -> Props
+overlayColor :: Color -> Props Style
 overlayColor = unsafeMkProps "overlayColor" <<< toHexString
 
 -- Shadow (IOS)
-shadowColor :: Color -> Props
+shadowColor :: Color -> Props Style
 shadowColor = unsafeMkProps "shadowColor" <<< toHexString
 
-shadowOffset ::  ∀ a. { width :: Number, height :: Number | a } -> Props
+shadowOffset ::  ∀ a. { width :: Number, height :: Number | a } -> Props Style
 shadowOffset = unsafeMkProps "shadowOffset"
 
-shadowOpacity :: Number -> Props
+shadowOpacity :: Number -> Props Style
 shadowOpacity = unsafeMkProps "shadowOpacity"
 
-shadowRadius :: Number -> Props
+shadowRadius :: Number -> Props Style
 shadowRadius = unsafeMkProps "shadowRadius"
 
 -- Transform
@@ -389,10 +391,10 @@ data Transform
   | Scale Number | ScaleX Number | ScaleY Number
   | TranslateX Number | TranslateY Number
 
-transform :: Array Transform -> Props
+transform :: Array Transform -> Props Style
 transform = unsafeMkProps "transform" <<< map transformToProps
   where
-    transformToProps :: Transform -> Props
+    transformToProps :: Transform -> Props Style
     transformToProps (Perspective n) = unsafeMkProps "perspective" n
     transformToProps (Rotate s)      = unsafeMkProps "rotate" s
     transformToProps (RotateX s)     = unsafeMkProps "rotateX" s

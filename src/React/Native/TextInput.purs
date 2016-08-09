@@ -2,15 +2,15 @@ module React.Native.TextInput where
 
 import Prelude
 import Color (toHexString, Color)
-import React (EventHandlerContext, Event, handle, ReactElement, ReactClass)
-import React.DOM.Props (unsafeMkProps, Props)
-import React.Native (createElement)
+import React (createElement, EventHandlerContext, Event, handle, ReactElement, ReactClass)
+import React.Native.Props (unsafeFromPropsArray, unsafeMkProps, Props)
 
+foreign import data TextInput :: *
 foreign import textInputClass :: ∀ props. ReactClass props
 
 -- | Create a `TextInput` element with props and no child elements.
-textInput :: Array Props -> ReactElement
-textInput props = createElement textInputClass props []
+textInput :: Array (Props TextInput) -> ReactElement
+textInput props = createElement textInputClass (unsafeFromPropsArray props) []
 
 -- Props
 data AutoCapitalize
@@ -25,46 +25,46 @@ instance showAutoCapitalize :: Show AutoCapitalize where
   show AutoCapitalizeWords = "words"
   show AutoCapitalizeCharacters = "characters"
 
-autoCapitalize :: AutoCapitalize -> Props
+autoCapitalize :: AutoCapitalize -> Props TextInput
 autoCapitalize = unsafeMkProps "autoCapitalize" <<< show
 
-autoCorrect :: Boolean -> Props
+autoCorrect :: Boolean -> Props TextInput
 autoCorrect = unsafeMkProps "autoCorrect"
 
-autoFocus :: Boolean -> Props
+autoFocus :: Boolean -> Props TextInput
 autoFocus = unsafeMkProps "autoFocus"
 
-blurOnSubmit :: Boolean -> Props
+blurOnSubmit :: Boolean -> Props TextInput
 blurOnSubmit = unsafeMkProps "blurOnSubmit"
 
-defaultValue :: String -> Props
+defaultValue :: String -> Props TextInput
 defaultValue = unsafeMkProps "defaultValue"
 
-editable :: Boolean -> Props
+editable :: Boolean -> Props TextInput
 editable = unsafeMkProps "editable"
 
-maxLength :: Int -> Props
+maxLength :: Int -> Props TextInput
 maxLength = unsafeMkProps "maxLength"
 
-multiline :: Boolean -> Props
+multiline :: Boolean -> Props TextInput
 multiline = unsafeMkProps "multiline"
 
-placeholder :: String -> Props
+placeholder :: String -> Props TextInput
 placeholder = unsafeMkProps "placeholder"
 
-placeholderTextColor :: Color -> Props
+placeholderTextColor :: Color -> Props TextInput
 placeholderTextColor = unsafeMkProps "placeholderTextColor" <<< toHexString
 
-secureTextEntry :: Boolean -> Props
+secureTextEntry :: Boolean -> Props TextInput
 secureTextEntry = unsafeMkProps "secureTextEntry"
 
-selectTextOnFocus :: Boolean -> Props
+selectTextOnFocus :: Boolean -> Props TextInput
 selectTextOnFocus = unsafeMkProps "selectTextOnFocus"
 
-selectionColor :: Color -> Props
+selectionColor :: Color -> Props TextInput
 selectionColor = unsafeMkProps "selectionColor" <<< toHexString
 
-value :: String -> Props
+value :: String -> Props TextInput
 value = unsafeMkProps "value"
 
 data KeyboardType
@@ -95,7 +95,7 @@ instance showKeyboardType :: Show KeyboardType where
   show KeyboardTwitter = "twitter"
   show KeyboardWebSearch = "web-search"
 
-keyboardType :: KeyboardType -> Props
+keyboardType :: KeyboardType -> Props TextInput
 keyboardType = unsafeMkProps "keyboardType" <<< show
 
 data ReturnKeyType
@@ -112,18 +112,18 @@ instance showReturnKeyType :: Show ReturnKeyType where
   show ReturnKeySearch = "search"
   show ReturnKeySend = "send"
 
-returnKeyType :: ReturnKeyType -> Props
+returnKeyType :: ReturnKeyType -> Props TextInput
 returnKeyType = unsafeMkProps "returnKeyType" <<< show
 
 -- Events
-onBlur :: ∀ eff props state result. (Event -> EventHandlerContext eff props state result) -> Props
+onBlur :: ∀ eff props state result. (Event -> EventHandlerContext eff props state result) -> Props TextInput
 onBlur = unsafeMkProps "onBlur" <<< handle
 
-onChange :: ∀ eff props state result. (Event -> EventHandlerContext eff props state result) -> Props
+onChange :: ∀ eff props state result. (Event -> EventHandlerContext eff props state result) -> Props TextInput
 onChange = unsafeMkProps "onChange" <<< handle
 
-onChangeText :: ∀ eff props state result. (String -> EventHandlerContext eff props state result) -> Props
+onChangeText :: ∀ eff props state result. (String -> EventHandlerContext eff props state result) -> Props TextInput
 onChangeText = unsafeMkProps "onChangeText" <<< handle
 
-onFocus :: ∀ eff props state result. (Event -> EventHandlerContext eff props state result) -> Props
+onFocus :: ∀ eff props state result. (Event -> EventHandlerContext eff props state result) -> Props TextInput
 onFocus = unsafeMkProps "onFocus" <<< handle

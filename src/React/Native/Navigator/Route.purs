@@ -1,14 +1,13 @@
 module React.Native.Navigator.Route where
 
 import React (ReactClass)
-import React.DOM.Props (Props)
 
 type Route props =
   { id :: String
   , title :: String
   , sceneConfig :: SceneConfig
   , component :: ReactClass props
-  , passProps :: Props
+  , passProps :: props
   }
 
 -- SceneConfig

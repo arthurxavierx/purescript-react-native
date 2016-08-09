@@ -2,13 +2,17 @@
 -- | to many React Native elements.
 module React.Native.Props where
 
-import React.DOM.Props (Props, unsafeMkProps)
+foreign import data Props :: * -> *
 
-testID :: String -> Props
+foreign import unsafeMkProps :: ∀ a prop. String -> prop -> Props a
+
+foreign import unsafeFromPropsArray :: ∀ a. Array (Props a) -> Props a
+
+testID :: ∀ a. String -> Props a
 testID = unsafeMkProps "testID"
 
-accessible :: Boolean -> Props
+accessible :: ∀ a. Boolean -> Props a
 accessible = unsafeMkProps "accessible"
 
-accessibilityLabel :: String -> Props
+accessibilityLabel :: ∀ a. String -> Props a
 accessibilityLabel = unsafeMkProps "accessibilityLabel"

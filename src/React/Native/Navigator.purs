@@ -3,13 +3,13 @@ module React.Native.Navigator where
 import Prelude
 import Control.Monad.Aff (Aff, makeAff)
 import Control.Monad.Eff (Eff)
-import React (handle, EventHandlerContext, ReactElement, ReactClass)
-import React.DOM.Props (unsafeFromPropsArray, unsafeMkProps, Props)
-import React.Native (createElement)
+import React (createElement, handle, EventHandlerContext, ReactElement, ReactClass)
 import React.Native.Navigator.Route (SceneConfig, Route)
+import React.Native.Props (unsafeFromPropsArray, unsafeMkProps, Props)
+import React.Native.Styles (Style)
 
-foreign import navigatorClass :: ∀ props. ReactClass props
-foreign import navigationBarClass :: ∀ props. ReactClass props
+foreign import navigatorClass :: ReactClass (Props Navigator)
+foreign import navigationBarClass :: ReactClass (Props NavigationBar)
 
 -- | This effect reprents computations that modify the navigation state of
 -- | the application.
@@ -19,43 +19,45 @@ newtype Navigator = Navigator ReactElement
 
 -- | Create a `Navigator` component from a `RenderScene` function,
 -- | an initial `Route` and an array of `Props`.
-navigator :: ∀ props. RenderScene props -> Route props -> Array Props -> Navigator
+navigator :: ∀ props. RenderScene props -> Route props -> Array (Props Navigator) -> Navigator
 navigator render route props = Navigator $ createElement navigatorClass props' []
   where
-    props' = props <> [renderScene render, initialRoute route]
+    props' = unsafeFromPropsArray $ props <> [renderScene render, initialRoute route]
+
+foreign import data NavigationBar :: *
 
 -- | Create a `NavigationBar` component with props.
-navigationBar :: Array Props -> ReactElement
-navigationBar props = createElement navigationBarClass props []
+navigationBar :: Array (Props NavigationBar) -> ReactElement
+navigationBar props = createElement navigationBarClass (unsafeFromPropsArray props) []
 
 -- Props
-configureScene :: ∀ props. (Route props -> Array (Route props) -> SceneConfig) -> Props
+configureScene :: ∀ props. (Route props -> Array (Route props) -> SceneConfig) -> Props Navigator
 configureScene = unsafeMkProps "configureScene"
 
-initialRoute :: ∀ props. Route props -> Props
+initialRoute :: ∀ props. Route props -> Props Navigator
 initialRoute = unsafeMkProps "initialRoute"
 
-initialRouteStack :: ∀ props. Array (Route props) -> Props
+initialRouteStack :: ∀ props. Array (Route props) -> Props Navigator
 initialRouteStack rs = unsafeMkProps "initialRouteStack" rs
 
-_navigationBar :: ∀ props. ReactClass props -> Props
+_navigationBar :: ∀ props. ReactClass props -> Props Navigator
 _navigationBar = unsafeMkProps "navigationBar"
 
-_navigator :: ReactElement -> Props
+_navigator :: ReactElement -> Props Navigator
 _navigator = unsafeMkProps "navigator"
 
-onDidFocus :: ∀ eff props state result. (Route props -> EventHandlerContext eff props state result) -> Props
+onDidFocus :: ∀ eff props state result. (Route props -> EventHandlerContext eff props state result) -> Props Navigator
 onDidFocus = unsafeMkProps "onDidFocus" <<< handle
 
-onWillFocus :: ∀ eff props state result. (Route props -> EventHandlerContext eff props state result) -> Props
+onWillFocus :: ∀ eff props state result. (Route props -> EventHandlerContext eff props state result) -> Props Navigator
 onWillFocus = unsafeMkProps "onWillFocus" <<< handle
 
 type RenderScene props = Route props -> ReactElement -> ReactElement
 
-renderScene :: ∀ props. RenderScene props -> Props
+renderScene :: ∀ props. RenderScene props -> Props Navigator
 renderScene = unsafeMkProps "renderScene"
 
-sceneStyle :: Array Props -> Props
+sceneStyle :: Array (Props Style) -> Props Navigator
 sceneStyle = unsafeMkProps "sceneStyle" <<< unsafeFromPropsArray
 
 -- Methods
