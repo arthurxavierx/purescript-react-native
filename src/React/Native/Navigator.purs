@@ -52,7 +52,7 @@ onDidFocus = unsafeMkProps "onDidFocus" <<< handle
 onWillFocus :: ∀ eff props state result. (Route props -> EventHandlerContext eff props state result) -> Props Navigator
 onWillFocus = unsafeMkProps "onWillFocus" <<< handle
 
-type RenderScene props = Route props -> ReactElement -> ReactElement
+type RenderScene props = Route props -> Navigator -> ReactElement
 
 renderScene :: ∀ props. RenderScene props -> Props Navigator
 renderScene = unsafeMkProps "renderScene"
