@@ -3,7 +3,7 @@ module React.Native.Navigator.Route where
 import React (ReactClass)
 
 type Route props =
-  { id :: String
+  { index :: Int
   , title :: String
   , sceneConfig :: SceneConfig
   , component :: ReactClass props
