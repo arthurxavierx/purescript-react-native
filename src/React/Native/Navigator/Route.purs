@@ -2,8 +2,8 @@ module React.Native.Navigator.Route where
 
 import React (ReactClass)
 
-type Route props =
-  { index :: Int
+type Route state props =
+  { index :: state
   , title :: String
   , sceneConfig :: SceneConfig
   , component :: ReactClass props
