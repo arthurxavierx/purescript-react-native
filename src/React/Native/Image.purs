@@ -14,7 +14,6 @@ image props = createElement imageClass (unsafeFromPropsArray props) []
 -- Props
 foreign import data ImageSource :: *
 
-foreign import loadImage :: String -> ImageSource
 foreign import loadImageUri :: String -> ImageSource
 
 source :: ImageSource -> Props Image
