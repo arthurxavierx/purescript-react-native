@@ -43,7 +43,7 @@ initialRouteStack rs = unsafeMkProps "initialRouteStack" rs
 _navigationBar :: ∀ props. ReactClass props -> Props Navigator
 _navigationBar = unsafeMkProps "navigationBar"
 
-_navigator :: ReactElement -> Props Navigator
+_navigator :: ∀ a. ReactElement -> Props a
 _navigator = unsafeMkProps "navigator"
 
 onDidFocus :: ∀ eff props state result. (Route state props -> EventHandlerContext eff props state result) -> Props Navigator
