@@ -4,7 +4,7 @@ import Prelude
 import Control.Monad.Aff (Aff, makeAff)
 import Control.Monad.Eff (Eff)
 import React (createElement, handle, EventHandlerContext, ReactElement, ReactClass)
-import React.Native.Navigator.Route (SceneConfig, Route)
+import React.Native.Navigator.Route (SceneConfig, Route, InitialRoute)
 import React.Native.Props (unsafeFromPropsArray, unsafeMkProps, Props)
 import React.Native.Styles (Style)
 
@@ -19,7 +19,7 @@ newtype Navigator = Navigator ReactElement
 
 -- | Create a `Navigator` component from a `RenderScene` function,
 -- | an initial `Route` and an array of `Props`.
-navigator :: ∀ state props. RenderScene state props -> Route state props -> Array (Props Navigator) -> Navigator
+navigator :: ∀ state props. RenderScene state props -> InitialRoute state -> Array (Props Navigator) -> Navigator
 navigator render route props = Navigator $ createElement navigatorClass props' []
   where
     props' = unsafeFromPropsArray $ props <> [renderScene render, initialRoute route]
@@ -34,7 +34,7 @@ navigationBar props = createElement navigationBarClass (unsafeFromPropsArray pro
 configureScene :: ∀ state props. (Route state props -> Array (Route state props) -> SceneConfig) -> Props Navigator
 configureScene = unsafeMkProps "configureScene"
 
-initialRoute :: ∀ state props. Route state props -> Props Navigator
+initialRoute :: ∀ state. InitialRoute state -> Props Navigator
 initialRoute = unsafeMkProps "initialRoute"
 
 initialRouteStack :: ∀ state props. Array (Route state props) -> Props Navigator

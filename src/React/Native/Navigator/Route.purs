@@ -2,6 +2,11 @@ module React.Native.Navigator.Route where
 
 import React (ReactClass)
 
+type InitialRoute state =
+  { index :: state
+  , title :: String
+  }
+
 type Route state props =
   { index :: state
   , title :: String
