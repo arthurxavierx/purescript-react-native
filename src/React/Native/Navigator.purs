@@ -3,6 +3,7 @@ module React.Native.Navigator where
 import Prelude
 import Control.Monad.Aff (Aff, makeAff)
 import Control.Monad.Eff (Eff)
+import Data.Function.Uncurried (mkFn2)
 import React (createElement, handle, EventHandlerContext, ReactElement, ReactClass)
 import React.Native.Navigator.Route (SceneConfig, Route, InitialRoute)
 import React.Native.Props (unsafeFromPropsArray, unsafeMkProps, Props)
@@ -32,7 +33,7 @@ navigationBar props = createElement navigationBarClass (unsafeFromPropsArray pro
 
 -- Props
 configureScene :: ∀ state props. (Route state props -> Array (Route state props) -> SceneConfig) -> Props Navigator
-configureScene = unsafeMkProps "configureScene"
+configureScene = unsafeMkProps "configureScene" <<< mkFn2
 
 initialRoute :: ∀ state. InitialRoute state -> Props Navigator
 initialRoute = unsafeMkProps "initialRoute"
@@ -55,7 +56,7 @@ onWillFocus = unsafeMkProps "onWillFocus" <<< handle
 type RenderScene state props = Route state props -> Navigator -> ReactElement
 
 renderScene :: ∀ state props. RenderScene state props -> Props Navigator
-renderScene = unsafeMkProps "renderScene"
+renderScene = unsafeMkProps "renderScene" <<< mkFn2
 
 sceneStyle :: Array (Props Style) -> Props Navigator
 sceneStyle = unsafeMkProps "sceneStyle" <<< unsafeFromPropsArray
