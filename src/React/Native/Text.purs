@@ -1,7 +1,7 @@
 module React.Native.Text where
 
 import Prelude
-import React (createElement, handle, EventHandlerContext, Event, ReactElement, ReactClass)
+import React (ReactElement, ReactClass, createElement)
 import React.Native.Props (unsafeFromPropsArray, unsafeMkProps, Props)
 import React.Native.Touchable (class Touchable)
 import Unsafe.Coerce (unsafeCoerce)
@@ -47,10 +47,3 @@ allowFontScaling = unsafeMkProps "allowFontScaling"
 
 suppressHighlighting :: Boolean -> Props Text
 suppressHighlighting = unsafeMkProps "suppressHighlighting"
-
--- Events
-onPress :: ∀ eff props state result. (Event -> EventHandlerContext eff props state result) -> Props Text
-onPress = unsafeMkProps "onPress" <<< handle
-
-onLongPress :: ∀ eff props state result. (Event -> EventHandlerContext eff props state result) -> Props Text
-onLongPress = unsafeMkProps "onLongPress" <<< handle
