@@ -3,9 +3,12 @@ module React.Native.Text where
 import Prelude
 import React (createElement, handle, EventHandlerContext, Event, ReactElement, ReactClass)
 import React.Native.Props (unsafeFromPropsArray, unsafeMkProps, Props)
+import React.Native.Touchable (class Touchable)
 import Unsafe.Coerce (unsafeCoerce)
 
 foreign import data Text :: *
+instance touchableText :: Touchable Text
+
 foreign import textClass :: ∀ props. ReactClass props
 
 -- | Create a `TextView` element from an array of `Props` and an array
