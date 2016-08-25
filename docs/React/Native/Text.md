@@ -1,5 +1,16 @@
 ## Module React.Native.Text
 
+#### `Text`
+
+``` purescript
+data Text :: *
+```
+
+##### Instances
+``` purescript
+Touchable Text
+```
+
 #### `textClass`
 
 ``` purescript
@@ -9,7 +20,7 @@ textClass :: forall props. ReactClass props
 #### `textView`
 
 ``` purescript
-textView :: Array Props -> Array ReactElement -> ReactElement
+textView :: Array (Props Text) -> Array ReactElement -> ReactElement
 ```
 
 Create a `TextView` element from an array of `Props` and an array
@@ -18,7 +29,7 @@ of children `ReactElement`.
 #### `text`
 
 ``` purescript
-text :: Array Props -> String -> ReactElement
+text :: Array (Props Text) -> String -> ReactElement
 ```
 
 Create a `TextView` element with props from a String.
@@ -41,43 +52,31 @@ Show LineBreakMode
 #### `lineBreakMode`
 
 ``` purescript
-lineBreakMode :: LineBreakMode -> Props
+lineBreakMode :: LineBreakMode -> Props Text
 ```
 
 #### `numberOfLines`
 
 ``` purescript
-numberOfLines :: Int -> Props
+numberOfLines :: Int -> Props Text
 ```
 
 #### `selectable`
 
 ``` purescript
-selectable :: Boolean -> Props
+selectable :: Boolean -> Props Text
 ```
 
 #### `allowFontScaling`
 
 ``` purescript
-allowFontScaling :: Boolean -> Props
+allowFontScaling :: Boolean -> Props Text
 ```
 
 #### `suppressHighlighting`
 
 ``` purescript
-suppressHighlighting :: Boolean -> Props
-```
-
-#### `onPress`
-
-``` purescript
-onPress :: forall eff props state result. (Event -> EventHandlerContext eff props state result) -> Props
-```
-
-#### `onLongPress`
-
-``` purescript
-onLongPress :: forall eff props state result. (Event -> EventHandlerContext eff props state result) -> Props
+suppressHighlighting :: Boolean -> Props Text
 ```
 
 

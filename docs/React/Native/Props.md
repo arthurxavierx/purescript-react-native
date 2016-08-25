@@ -3,22 +3,40 @@
 The Props module provides definitions of Props functions that are common
 to many React Native elements.
 
+#### `Props`
+
+``` purescript
+data Props :: * -> *
+```
+
+#### `unsafeMkProps`
+
+``` purescript
+unsafeMkProps :: forall a prop. String -> prop -> Props a
+```
+
+#### `unsafeFromPropsArray`
+
+``` purescript
+unsafeFromPropsArray :: forall a. Array (Props a) -> Props a
+```
+
 #### `testID`
 
 ``` purescript
-testID :: String -> Props
+testID :: forall a. String -> Props a
 ```
 
 #### `accessible`
 
 ``` purescript
-accessible :: Boolean -> Props
+accessible :: forall a. Boolean -> Props a
 ```
 
 #### `accessibilityLabel`
 
 ``` purescript
-accessibilityLabel :: String -> Props
+accessibilityLabel :: forall a. String -> Props a
 ```
 
 

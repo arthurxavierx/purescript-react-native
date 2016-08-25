@@ -1,5 +1,11 @@
 ## Module React.Native.TextInput
 
+#### `TextInput`
+
+``` purescript
+data TextInput :: *
+```
+
 #### `textInputClass`
 
 ``` purescript
@@ -9,7 +15,7 @@ textInputClass :: forall props. ReactClass props
 #### `textInput`
 
 ``` purescript
-textInput :: Array Props -> ReactElement
+textInput :: Array (Props TextInput) -> ReactElement
 ```
 
 Create a `TextInput` element with props and no child elements.
@@ -32,85 +38,85 @@ Show AutoCapitalize
 #### `autoCapitalize`
 
 ``` purescript
-autoCapitalize :: AutoCapitalize -> Props
+autoCapitalize :: AutoCapitalize -> Props TextInput
 ```
 
 #### `autoCorrect`
 
 ``` purescript
-autoCorrect :: Boolean -> Props
+autoCorrect :: Boolean -> Props TextInput
 ```
 
 #### `autoFocus`
 
 ``` purescript
-autoFocus :: Boolean -> Props
+autoFocus :: Boolean -> Props TextInput
 ```
 
 #### `blurOnSubmit`
 
 ``` purescript
-blurOnSubmit :: Boolean -> Props
+blurOnSubmit :: Boolean -> Props TextInput
 ```
 
 #### `defaultValue`
 
 ``` purescript
-defaultValue :: String -> Props
+defaultValue :: String -> Props TextInput
 ```
 
 #### `editable`
 
 ``` purescript
-editable :: Boolean -> Props
+editable :: Boolean -> Props TextInput
 ```
 
 #### `maxLength`
 
 ``` purescript
-maxLength :: Int -> Props
+maxLength :: Int -> Props TextInput
 ```
 
 #### `multiline`
 
 ``` purescript
-multiline :: Boolean -> Props
+multiline :: Boolean -> Props TextInput
 ```
 
 #### `placeholder`
 
 ``` purescript
-placeholder :: String -> Props
+placeholder :: String -> Props TextInput
 ```
 
 #### `placeholderTextColor`
 
 ``` purescript
-placeholderTextColor :: Color -> Props
+placeholderTextColor :: Color -> Props TextInput
 ```
 
 #### `secureTextEntry`
 
 ``` purescript
-secureTextEntry :: Boolean -> Props
+secureTextEntry :: Boolean -> Props TextInput
 ```
 
 #### `selectTextOnFocus`
 
 ``` purescript
-selectTextOnFocus :: Boolean -> Props
+selectTextOnFocus :: Boolean -> Props TextInput
 ```
 
 #### `selectionColor`
 
 ``` purescript
-selectionColor :: Color -> Props
+selectionColor :: Color -> Props TextInput
 ```
 
 #### `value`
 
 ``` purescript
-value :: String -> Props
+value :: String -> Props TextInput
 ```
 
 #### `KeyboardType`
@@ -139,7 +145,7 @@ Show KeyboardType
 #### `keyboardType`
 
 ``` purescript
-keyboardType :: KeyboardType -> Props
+keyboardType :: KeyboardType -> Props TextInput
 ```
 
 #### `ReturnKeyType`
@@ -161,31 +167,31 @@ Show ReturnKeyType
 #### `returnKeyType`
 
 ``` purescript
-returnKeyType :: ReturnKeyType -> Props
+returnKeyType :: ReturnKeyType -> Props TextInput
 ```
 
 #### `onBlur`
 
 ``` purescript
-onBlur :: forall eff props state result. (Event -> EventHandlerContext eff props state result) -> Props
+onBlur :: forall eff props state result. (Event -> EventHandlerContext eff props state result) -> Props TextInput
 ```
 
 #### `onChange`
 
 ``` purescript
-onChange :: forall eff props state result. (Event -> EventHandlerContext eff props state result) -> Props
+onChange :: forall eff props state result. (Event -> EventHandlerContext eff props state result) -> Props TextInput
 ```
 
 #### `onChangeText`
 
 ``` purescript
-onChangeText :: forall eff props state result. (String -> EventHandlerContext eff props state result) -> Props
+onChangeText :: forall eff props state result. (String -> EventHandlerContext eff props state result) -> Props TextInput
 ```
 
 #### `onFocus`
 
 ``` purescript
-onFocus :: forall eff props state result. (Event -> EventHandlerContext eff props state result) -> Props
+onFocus :: forall eff props state result. (Event -> EventHandlerContext eff props state result) -> Props TextInput
 ```
 
 

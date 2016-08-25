@@ -1,23 +1,29 @@
 ## Module React.Native.ToolbarAndroid
 
+#### `ToolbarAndroid`
+
+``` purescript
+data ToolbarAndroid :: *
+```
+
 #### `toolbarAndroidClass`
 
 ``` purescript
-toolbarAndroidClass :: forall props. ReactClass props
+toolbarAndroidClass :: ReactClass (Props ToolbarAndroid)
 ```
 
 #### `toolbarAndroid`
 
 ``` purescript
-toolbarAndroid :: Array Action -> Array Props -> ReactElement
+toolbarAndroid :: Array ToolbarAction -> Array (Props ToolbarAndroid) -> ReactElement
 ```
 
 Create a `ToolbarAndroid` component with props and children.
 
-#### `ActionShow`
+#### `ToolbarActionShow`
 
 ``` purescript
-data ActionShow
+data ToolbarActionShow
   = Always
   | IfRoom
   | Never
@@ -25,85 +31,91 @@ data ActionShow
 
 ##### Instances
 ``` purescript
-Show ActionShow
+Show ToolbarActionShow
 ```
 
-#### `Action`
+#### `ToolbarAction`
 
 ``` purescript
-type Action = { title :: String, icon :: Maybe ImageSource, show :: Maybe ActionShow, showWithText :: Maybe Boolean }
+type ToolbarAction = { title :: String, icon :: Maybe ImageSource, show :: Maybe ToolbarActionShow, showWithText :: Maybe Boolean }
+```
+
+#### `actions`
+
+``` purescript
+actions :: Array ToolbarAction -> Props ToolbarAndroid
 ```
 
 #### `contentInsetEnd`
 
 ``` purescript
-contentInsetEnd :: Number -> Props
+contentInsetEnd :: Number -> Props ToolbarAndroid
 ```
 
 #### `contentInsetStart`
 
 ``` purescript
-contentInsetStart :: Number -> Props
+contentInsetStart :: Number -> Props ToolbarAndroid
 ```
 
 #### `logo`
 
 ``` purescript
-logo :: ImageSource -> Props
+logo :: ImageSource -> Props ToolbarAndroid
 ```
 
 #### `navIcon`
 
 ``` purescript
-navIcon :: ImageSource -> Props
+navIcon :: ImageSource -> Props ToolbarAndroid
 ```
 
 #### `overflowIcon`
 
 ``` purescript
-overflowIcon :: ImageSource -> Props
+overflowIcon :: ImageSource -> Props ToolbarAndroid
 ```
 
 #### `rtl`
 
 ``` purescript
-rtl :: Boolean -> Props
+rtl :: Boolean -> Props ToolbarAndroid
 ```
 
 #### `subtitle`
 
 ``` purescript
-subtitle :: String -> Props
+subtitle :: String -> Props ToolbarAndroid
 ```
 
 #### `subtitleColor`
 
 ``` purescript
-subtitleColor :: Color -> Props
+subtitleColor :: Color -> Props ToolbarAndroid
 ```
 
 #### `title`
 
 ``` purescript
-title :: String -> Props
+title :: String -> Props ToolbarAndroid
 ```
 
 #### `titleColor`
 
 ``` purescript
-titleColor :: Color -> Props
+titleColor :: Color -> Props ToolbarAndroid
 ```
 
 #### `onActionSelected`
 
 ``` purescript
-onActionSelected :: forall eff props state result. (Int -> EventHandlerContext eff props state result) -> Props
+onActionSelected :: forall eff props state result. (Int -> EventHandlerContext eff props state result) -> Props ToolbarAndroid
 ```
 
 #### `onIconClicked`
 
 ``` purescript
-onIconClicked :: forall eff props state result. (Event -> EventHandlerContext eff props state result) -> Props
+onIconClicked :: forall eff props state result. (Event -> EventHandlerContext eff props state result) -> Props ToolbarAndroid
 ```
 
 

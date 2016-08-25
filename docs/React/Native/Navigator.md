@@ -3,13 +3,13 @@
 #### `navigatorClass`
 
 ``` purescript
-navigatorClass :: forall props. ReactClass props
+navigatorClass :: ReactClass (Props Navigator)
 ```
 
 #### `navigationBarClass`
 
 ``` purescript
-navigationBarClass :: forall props. ReactClass props
+navigationBarClass :: ReactClass (Props NavigationBar)
 ```
 
 #### `NAVIGATION`
@@ -31,16 +31,22 @@ newtype Navigator
 #### `navigator`
 
 ``` purescript
-navigator :: forall props. RenderScene props -> Route props -> Array Props -> Navigator
+navigator :: forall state props. RenderScene state props -> InitialRoute state -> Array (Props Navigator) -> Navigator
 ```
 
 Create a `Navigator` component from a `RenderScene` function,
 an initial `Route` and an array of `Props`.
 
+#### `NavigationBar`
+
+``` purescript
+data NavigationBar :: *
+```
+
 #### `navigationBar`
 
 ``` purescript
-navigationBar :: Array Props -> ReactElement
+navigationBar :: Array (Props NavigationBar) -> ReactElement
 ```
 
 Create a `NavigationBar` component with props.
@@ -48,67 +54,67 @@ Create a `NavigationBar` component with props.
 #### `configureScene`
 
 ``` purescript
-configureScene :: forall props. (Route props -> Array (Route props) -> SceneConfig) -> Props
+configureScene :: forall state props. (Route state props -> Array (Route state props) -> SceneConfig) -> Props Navigator
 ```
 
 #### `initialRoute`
 
 ``` purescript
-initialRoute :: forall props. Route props -> Props
+initialRoute :: forall state. InitialRoute state -> Props Navigator
 ```
 
 #### `initialRouteStack`
 
 ``` purescript
-initialRouteStack :: forall props. Array (Route props) -> Props
+initialRouteStack :: forall state props. Array (Route state props) -> Props Navigator
 ```
 
 #### `_navigationBar`
 
 ``` purescript
-_navigationBar :: forall props. ReactClass props -> Props
+_navigationBar :: forall props. ReactClass props -> Props Navigator
 ```
 
 #### `_navigator`
 
 ``` purescript
-_navigator :: ReactElement -> Props
+_navigator :: forall a. ReactElement -> Props a
 ```
 
 #### `onDidFocus`
 
 ``` purescript
-onDidFocus :: forall eff props state result. (Route props -> EventHandlerContext eff props state result) -> Props
+onDidFocus :: forall eff props state result. (Route state props -> EventHandlerContext eff props state result) -> Props Navigator
 ```
 
 #### `onWillFocus`
 
 ``` purescript
-onWillFocus :: forall eff props state result. (Route props -> EventHandlerContext eff props state result) -> Props
+onWillFocus :: forall eff props state result. (Route state props -> EventHandlerContext eff props state result) -> Props Navigator
 ```
 
 #### `RenderScene`
 
 ``` purescript
-type RenderScene props = Route props -> ReactElement -> ReactElement
+type RenderScene state props = Route state props -> Navigator -> ReactElement
 ```
 
 #### `renderScene`
 
 ``` purescript
-renderScene :: forall props. RenderScene props -> Props
+renderScene :: forall state props. RenderScene state props -> Props Navigator
 ```
 
 #### `sceneStyle`
 
 ``` purescript
-sceneStyle :: Array Props -> Props
+sceneStyle :: Array (Props Style) -> Props Navigator
 ```
 
 #### `immediatelyResetRouteStack`
 
 ``` purescript
-immediatelyResetRouteStack :: forall props e. Navigator -> Array (Route props) -> Eff (navigation :: NAVIGATION | e) Unit
+immediatelyResetRouteStack :: forall state props e. Navigator -> Array (Route state props) -> Eff (navigation :: NAVIGATION | e) Unit
 ```
 
 Reset every scene with an array of routes.
@@ -116,7 +122,7 @@ Reset every scene with an array of routes.
 #### `jumpTo`
 
 ``` purescript
-jumpTo :: forall props e. Navigator -> Route props -> Eff (navigation :: NAVIGATION | e) Unit
+jumpTo :: forall state props e. Navigator -> Route state props -> Eff (navigation :: NAVIGATION | e) Unit
 ```
 
 Transition to an existing scene without unmounting.
@@ -140,7 +146,7 @@ Jump backward without unmounting the current scene.
 #### `push`
 
 ``` purescript
-push :: forall props e. Navigator -> Route props -> Eff (navigation :: NAVIGATION | e) Unit
+push :: forall state props e. Navigator -> Route state props -> Eff (navigation :: NAVIGATION | e) Unit
 ```
 
 Navigate forward to a new scene, squashing any scenes to which you could
@@ -157,13 +163,13 @@ Transition back and unmount the current scene.
 #### `replaceAtIndexWithCallback`
 
 ``` purescript
-replaceAtIndexWithCallback :: forall props a e. Navigator -> Route props -> Int -> (a -> Eff e Unit) -> Eff e Unit
+replaceAtIndexWithCallback :: forall state props a e. Navigator -> Route state props -> Int -> (a -> Eff e Unit) -> Eff e Unit
 ```
 
 #### `replaceAtIndex`
 
 ``` purescript
-replaceAtIndex :: forall props e. Navigator -> Route props -> Int -> Aff e Unit
+replaceAtIndex :: forall state props e. Navigator -> Route state props -> Int -> Aff e Unit
 ```
 
 Replace a scene as specified by an index.
@@ -171,7 +177,7 @@ Replace a scene as specified by an index.
 #### `replace`
 
 ``` purescript
-replace :: forall props e. Navigator -> Route props -> Eff (navigation :: NAVIGATION | e) Unit
+replace :: forall state props e. Navigator -> Route state props -> Eff (navigation :: NAVIGATION | e) Unit
 ```
 
 Replace the current scene with a new route.
@@ -179,7 +185,7 @@ Replace the current scene with a new route.
 #### `replacePrevious`
 
 ``` purescript
-replacePrevious :: forall props e. Navigator -> Route props -> Eff (navigation :: NAVIGATION | e) Unit
+replacePrevious :: forall state props e. Navigator -> Route state props -> Eff (navigation :: NAVIGATION | e) Unit
 ```
 
 Replace the previous scene.
@@ -195,7 +201,7 @@ Pop to the first scene in the stack, unmounting every other scene.
 #### `popToRoute`
 
 ``` purescript
-popToRoute :: forall props e. Navigator -> Route props -> Eff (navigation :: NAVIGATION | e) Unit
+popToRoute :: forall state props e. Navigator -> Route state props -> Eff (navigation :: NAVIGATION | e) Unit
 ```
 
 Pop to a particular scene, as specified by its route. All scenes after it will be unmounted.
@@ -203,7 +209,7 @@ Pop to a particular scene, as specified by its route. All scenes after it will b
 #### `replacePreviousAndPop`
 
 ``` purescript
-replacePreviousAndPop :: forall props e. Navigator -> Route props -> Eff (navigation :: NAVIGATION | e) Unit
+replacePreviousAndPop :: forall state props e. Navigator -> Route state props -> Eff (navigation :: NAVIGATION | e) Unit
 ```
 
 Replace the previous scene and pop to it.
@@ -211,7 +217,7 @@ Replace the previous scene and pop to it.
 #### `resetTo`
 
 ``` purescript
-resetTo :: forall props e. Navigator -> Route props -> Eff (navigation :: NAVIGATION | e) Unit
+resetTo :: forall state props e. Navigator -> Route state props -> Eff (navigation :: NAVIGATION | e) Unit
 ```
 
 Navigate to a new scene and reset route stack.
@@ -219,7 +225,7 @@ Navigate to a new scene and reset route stack.
 #### `getCurrentRoutes`
 
 ``` purescript
-getCurrentRoutes :: forall props e. Navigator -> Eff (navigation :: NAVIGATION | e) (Array (Route props))
+getCurrentRoutes :: forall state props e. Navigator -> Eff (navigation :: NAVIGATION | e) (Array (Route state props))
 ```
 
 Returns the current list of routes.

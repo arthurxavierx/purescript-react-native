@@ -1,51 +1,57 @@
 ## Module React.Native.Styles
 
+#### `Style`
+
+``` purescript
+data Style :: *
+```
+
 #### `style`
 
 ``` purescript
-style :: Array Props -> Props
+style :: forall a. Array (Props Style) -> Props a
 ```
 
 #### `styles`
 
 ``` purescript
-styles :: Array (Array Props) -> Props
+styles :: forall a. Array (Array (Props Style)) -> Props a
 ```
 
 #### `width`
 
 ``` purescript
-width :: Number -> Props
+width :: Number -> Props Style
 ```
 
 #### `height`
 
 ``` purescript
-height :: Number -> Props
+height :: Number -> Props Style
 ```
 
 #### `maxWidth`
 
 ``` purescript
-maxWidth :: Number -> Props
+maxWidth :: Number -> Props Style
 ```
 
 #### `minWidth`
 
 ``` purescript
-minWidth :: Number -> Props
+minWidth :: Number -> Props Style
 ```
 
 #### `maxHeight`
 
 ``` purescript
-maxHeight :: Number -> Props
+maxHeight :: Number -> Props Style
 ```
 
 #### `minHeight`
 
 ``` purescript
-minHeight :: Number -> Props
+minHeight :: Number -> Props Style
 ```
 
 #### `Position`
@@ -64,37 +70,37 @@ Show Position
 #### `position`
 
 ``` purescript
-position :: Position -> Props
+position :: Position -> Props Style
 ```
 
 #### `top`
 
 ``` purescript
-top :: Number -> Props
+top :: Number -> Props Style
 ```
 
 #### `right`
 
 ``` purescript
-right :: Number -> Props
+right :: Number -> Props Style
 ```
 
 #### `bottom`
 
 ``` purescript
-bottom :: Number -> Props
+bottom :: Number -> Props Style
 ```
 
 #### `left`
 
 ``` purescript
-left :: Number -> Props
+left :: Number -> Props Style
 ```
 
 #### `flex`
 
 ``` purescript
-flex :: Int -> Props
+flex :: Int -> Props Style
 ```
 
 #### `FlexDirection`
@@ -115,7 +121,7 @@ Show FlexDirection
 #### `flexDirection`
 
 ``` purescript
-flexDirection :: FlexDirection -> Props
+flexDirection :: FlexDirection -> Props Style
 ```
 
 #### `FlexWrap`
@@ -134,7 +140,7 @@ Show FlexWrap
 #### `flexWrap`
 
 ``` purescript
-flexWrap :: FlexWrap -> Props
+flexWrap :: FlexWrap -> Props Style
 ```
 
 #### `FlexAlign`
@@ -158,169 +164,169 @@ Show FlexAlign
 #### `justifyContent`
 
 ``` purescript
-justifyContent :: FlexAlign -> Props
+justifyContent :: FlexAlign -> Props Style
 ```
 
 #### `alignItems`
 
 ``` purescript
-alignItems :: FlexAlign -> Props
+alignItems :: FlexAlign -> Props Style
 ```
 
 #### `alignSelf`
 
 ``` purescript
-alignSelf :: FlexAlign -> Props
+alignSelf :: FlexAlign -> Props Style
 ```
 
 #### `zIndex`
 
 ``` purescript
-zIndex :: Int -> Props
+zIndex :: Int -> Props Style
 ```
 
 #### `margin`
 
 ``` purescript
-margin :: Number -> Props
+margin :: Number -> Props Style
 ```
 
 #### `marginVertical`
 
 ``` purescript
-marginVertical :: Number -> Props
+marginVertical :: Number -> Props Style
 ```
 
 #### `marginHorizontal`
 
 ``` purescript
-marginHorizontal :: Number -> Props
+marginHorizontal :: Number -> Props Style
 ```
 
 #### `marginTop`
 
 ``` purescript
-marginTop :: Number -> Props
+marginTop :: Number -> Props Style
 ```
 
 #### `marginRight`
 
 ``` purescript
-marginRight :: Number -> Props
+marginRight :: Number -> Props Style
 ```
 
 #### `marginBottom`
 
 ``` purescript
-marginBottom :: Number -> Props
+marginBottom :: Number -> Props Style
 ```
 
 #### `marginLeft`
 
 ``` purescript
-marginLeft :: Number -> Props
+marginLeft :: Number -> Props Style
 ```
 
 #### `padding`
 
 ``` purescript
-padding :: Number -> Props
+padding :: Number -> Props Style
 ```
 
 #### `paddingVertical`
 
 ``` purescript
-paddingVertical :: Number -> Props
+paddingVertical :: Number -> Props Style
 ```
 
 #### `paddingHorizontal`
 
 ``` purescript
-paddingHorizontal :: Number -> Props
+paddingHorizontal :: Number -> Props Style
 ```
 
 #### `paddingTop`
 
 ``` purescript
-paddingTop :: Number -> Props
+paddingTop :: Number -> Props Style
 ```
 
 #### `paddingRight`
 
 ``` purescript
-paddingRight :: Number -> Props
+paddingRight :: Number -> Props Style
 ```
 
 #### `paddingBottom`
 
 ``` purescript
-paddingBottom :: Number -> Props
+paddingBottom :: Number -> Props Style
 ```
 
 #### `paddingLeft`
 
 ``` purescript
-paddingLeft :: Number -> Props
+paddingLeft :: Number -> Props Style
 ```
 
 #### `borderColor`
 
 ``` purescript
-borderColor :: Color -> Props
+borderColor :: Color -> Props Style
 ```
 
 #### `borderTopColor`
 
 ``` purescript
-borderTopColor :: Color -> Props
+borderTopColor :: Color -> Props Style
 ```
 
 #### `borderRightColor`
 
 ``` purescript
-borderRightColor :: Color -> Props
+borderRightColor :: Color -> Props Style
 ```
 
 #### `borderBottomColor`
 
 ``` purescript
-borderBottomColor :: Color -> Props
+borderBottomColor :: Color -> Props Style
 ```
 
 #### `borderLeftColor`
 
 ``` purescript
-borderLeftColor :: Color -> Props
+borderLeftColor :: Color -> Props Style
 ```
 
 #### `borderRadius`
 
 ``` purescript
-borderRadius :: Number -> Props
+borderRadius :: Number -> Props Style
 ```
 
 #### `borderTopLeftRadius`
 
 ``` purescript
-borderTopLeftRadius :: Number -> Props
+borderTopLeftRadius :: Number -> Props Style
 ```
 
 #### `borderTopRightRadius`
 
 ``` purescript
-borderTopRightRadius :: Number -> Props
+borderTopRightRadius :: Number -> Props Style
 ```
 
 #### `borderBottomLeftRadius`
 
 ``` purescript
-borderBottomLeftRadius :: Number -> Props
+borderBottomLeftRadius :: Number -> Props Style
 ```
 
 #### `borderBottomRightRadius`
 
 ``` purescript
-borderBottomRightRadius :: Number -> Props
+borderBottomRightRadius :: Number -> Props Style
 ```
 
 #### `BorderStyle`
@@ -341,43 +347,43 @@ Show BorderStyle
 #### `borderStyle`
 
 ``` purescript
-borderStyle :: BorderStyle -> Props
+borderStyle :: BorderStyle -> Props Style
 ```
 
 #### `borderWidth`
 
 ``` purescript
-borderWidth :: Number -> Props
+borderWidth :: Number -> Props Style
 ```
 
 #### `borderTopWidth`
 
 ``` purescript
-borderTopWidth :: Number -> Props
+borderTopWidth :: Number -> Props Style
 ```
 
 #### `borderRightWidth`
 
 ``` purescript
-borderRightWidth :: Number -> Props
+borderRightWidth :: Number -> Props Style
 ```
 
 #### `borderBottomWidth`
 
 ``` purescript
-borderBottomWidth :: Number -> Props
+borderBottomWidth :: Number -> Props Style
 ```
 
 #### `borderLeftWidth`
 
 ``` purescript
-borderLeftWidth :: Number -> Props
+borderLeftWidth :: Number -> Props Style
 ```
 
 #### `opacity`
 
 ``` purescript
-opacity :: Number -> Props
+opacity :: Number -> Props Style
 ```
 
 #### `Visibility`
@@ -396,37 +402,37 @@ Show Visibility
 #### `overflow`
 
 ``` purescript
-overflow :: Visibility -> Props
+overflow :: Visibility -> Props Style
 ```
 
 #### `elevation`
 
 ``` purescript
-elevation :: Int -> Props
+elevation :: Int -> Props Style
 ```
 
 #### `color`
 
 ``` purescript
-color :: Color -> Props
+color :: Color -> Props Style
 ```
 
 #### `backgroundColor`
 
 ``` purescript
-backgroundColor :: Color -> Props
+backgroundColor :: Color -> Props Style
 ```
 
 #### `fontFamily`
 
 ``` purescript
-fontFamily :: String -> Props
+fontFamily :: String -> Props Style
 ```
 
 #### `fontSize`
 
 ``` purescript
-fontSize :: Number -> Props
+fontSize :: Number -> Props Style
 ```
 
 #### `FontStyle`
@@ -445,7 +451,7 @@ Show FontStyle
 #### `fontStyle`
 
 ``` purescript
-fontStyle :: FontStyle -> Props
+fontStyle :: FontStyle -> Props Style
 ```
 
 #### `FontWeight`
@@ -471,37 +477,37 @@ Show FontWeight
 #### `fontWeight`
 
 ``` purescript
-fontWeight :: FontWeight -> Props
+fontWeight :: FontWeight -> Props Style
 ```
 
 #### `textShadowOffset`
 
 ``` purescript
-textShadowOffset :: forall a. { width :: Number, height :: Number | a } -> Props
+textShadowOffset :: forall a. { width :: Number, height :: Number | a } -> Props Style
 ```
 
 #### `textShadowRadius`
 
 ``` purescript
-textShadowRadius :: Number -> Props
+textShadowRadius :: Number -> Props Style
 ```
 
 #### `textShadowColor`
 
 ``` purescript
-textShadowColor :: Color -> Props
+textShadowColor :: Color -> Props Style
 ```
 
 #### `letterSpacing`
 
 ``` purescript
-letterSpacing :: Number -> Props
+letterSpacing :: Number -> Props Style
 ```
 
 #### `lineHeight`
 
 ``` purescript
-lineHeight :: Number -> Props
+lineHeight :: Number -> Props Style
 ```
 
 #### `Alignment`
@@ -525,13 +531,13 @@ Show Alignment
 #### `textAlign`
 
 ``` purescript
-textAlign :: Alignment -> Props
+textAlign :: Alignment -> Props Style
 ```
 
 #### `textAlignVertical`
 
 ``` purescript
-textAlignVertical :: Alignment -> Props
+textAlignVertical :: Alignment -> Props Style
 ```
 
 #### `TextDecorationLine`
@@ -552,19 +558,19 @@ Show TextDecorationLine
 #### `textDecorationLine`
 
 ``` purescript
-textDecorationLine :: TextDecorationLine -> Props
+textDecorationLine :: TextDecorationLine -> Props Style
 ```
 
 #### `textDecorationStyle`
 
 ``` purescript
-textDecorationStyle :: BorderStyle -> Props
+textDecorationStyle :: BorderStyle -> Props Style
 ```
 
 #### `textDecorationColor`
 
 ``` purescript
-textDecorationColor :: Color -> Props
+textDecorationColor :: Color -> Props Style
 ```
 
 #### `WritingDirection`
@@ -584,7 +590,7 @@ Show WritingDirection
 #### `writingDirection`
 
 ``` purescript
-writingDirection :: WritingDirection -> Props
+writingDirection :: WritingDirection -> Props Style
 ```
 
 #### `ResizeMode`
@@ -605,49 +611,49 @@ Show ResizeMode
 #### `resizeMode`
 
 ``` purescript
-resizeMode :: ResizeMode -> Props
+resizeMode :: ResizeMode -> Props Style
 ```
 
 #### `backfaceVisibility`
 
 ``` purescript
-backfaceVisibility :: Visibility -> Props
+backfaceVisibility :: Visibility -> Props Style
 ```
 
 #### `tintColor`
 
 ``` purescript
-tintColor :: Color -> Props
+tintColor :: Color -> Props Style
 ```
 
 #### `overlayColor`
 
 ``` purescript
-overlayColor :: Color -> Props
+overlayColor :: Color -> Props Style
 ```
 
 #### `shadowColor`
 
 ``` purescript
-shadowColor :: Color -> Props
+shadowColor :: Color -> Props Style
 ```
 
 #### `shadowOffset`
 
 ``` purescript
-shadowOffset :: forall a. { width :: Number, height :: Number | a } -> Props
+shadowOffset :: forall a. { width :: Number, height :: Number | a } -> Props Style
 ```
 
 #### `shadowOpacity`
 
 ``` purescript
-shadowOpacity :: Number -> Props
+shadowOpacity :: Number -> Props Style
 ```
 
 #### `shadowRadius`
 
 ``` purescript
-shadowRadius :: Number -> Props
+shadowRadius :: Number -> Props Style
 ```
 
 #### `Transform`
@@ -669,7 +675,7 @@ data Transform
 #### `transform`
 
 ``` purescript
-transform :: Array Transform -> Props
+transform :: Array Transform -> Props Style
 ```
 
 

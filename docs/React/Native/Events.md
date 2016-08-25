@@ -12,7 +12,7 @@ type LayoutEvent = { nativeEvent :: { layout :: { x :: Number, y :: Number, widt
 #### `onLayout`
 
 ``` purescript
-onLayout :: forall eff props state result. (LayoutEvent -> EventHandlerContext eff props state result) -> Props
+onLayout :: forall a eff props state result. (LayoutEvent -> EventHandlerContext eff props state result) -> Props a
 ```
 
 

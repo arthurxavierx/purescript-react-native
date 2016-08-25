@@ -1,15 +1,21 @@
 ## Module React.Native.View
 
+#### `View`
+
+``` purescript
+data View :: *
+```
+
 #### `viewClass`
 
 ``` purescript
-viewClass :: forall props. ReactClass props
+viewClass :: ReactClass (Props View)
 ```
 
 #### `view`
 
 ``` purescript
-view :: Array Props -> Array ReactElement -> ReactElement
+view :: Array (Props View) -> Array ReactElement -> ReactElement
 ```
 
 Create a `View` element from an array of `Props` and an array
@@ -18,7 +24,7 @@ of children `ReactElement`.
 #### `hitSlop`
 
 ``` purescript
-hitSlop :: forall a. { top :: Number, left :: Number, bottom :: Number, right :: Number | a } -> Props
+hitSlop :: forall a. { top :: Number, left :: Number, bottom :: Number, right :: Number | a } -> Props View
 ```
 
 #### `PointerEvent`
@@ -39,19 +45,19 @@ Show PointerEvent
 #### `pointerEvents`
 
 ``` purescript
-pointerEvents :: PointerEvent -> Props
+pointerEvents :: PointerEvent -> Props View
 ```
 
 #### `removeClippedSubviews`
 
 ``` purescript
-removeClippedSubviews :: Boolean -> Props
+removeClippedSubviews :: Boolean -> Props View
 ```
 
 #### `collapsable`
 
 ``` purescript
-collapsable :: Boolean -> Props
+collapsable :: Boolean -> Props View
 ```
 
 

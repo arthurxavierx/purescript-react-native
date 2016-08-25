@@ -1,9 +1,15 @@
 ## Module React.Native.Navigator.Route
 
+#### `InitialRoute`
+
+``` purescript
+type InitialRoute state = { index :: state, title :: String }
+```
+
 #### `Route`
 
 ``` purescript
-type Route props = { id :: String, title :: String, sceneConfig :: SceneConfig, component :: ReactClass props, passProps :: Props }
+type Route state props = { index :: state, title :: String, sceneConfig :: SceneConfig, component :: ReactClass props, passProps :: props }
 ```
 
 #### `SceneConfig`

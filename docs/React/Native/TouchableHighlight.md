@@ -1,15 +1,26 @@
 ## Module React.Native.TouchableHighlight
 
+#### `TouchableHighlight`
+
+``` purescript
+data TouchableHighlight :: *
+```
+
+##### Instances
+``` purescript
+Touchable TouchableHighlight
+```
+
 #### `touchableHighlightClass`
 
 ``` purescript
-touchableHighlightClass :: forall props. ReactClass props
+touchableHighlightClass :: ReactClass (Props TouchableHighlight)
 ```
 
 #### `touchableHighlight`
 
 ``` purescript
-touchableHighlight :: Array Props -> Array ReactElement -> ReactElement
+touchableHighlight :: Array (Props TouchableHighlight) -> ReactElement -> ReactElement
 ```
 
 Create a `TouchableHighlight` component with props and children.
@@ -17,25 +28,25 @@ Create a `TouchableHighlight` component with props and children.
 #### `activeOpacity`
 
 ``` purescript
-activeOpacity :: Number -> Props
+activeOpacity :: Number -> Props TouchableHighlight
 ```
 
 #### `underlayColor`
 
 ``` purescript
-underlayColor :: Color -> Props
+underlayColor :: Color -> Props TouchableHighlight
 ```
 
 #### `onHideUnderlay`
 
 ``` purescript
-onHideUnderlay :: forall eff props state result. (Event -> EventHandlerContext eff props state result) -> Props
+onHideUnderlay :: forall eff props state result. (Event -> EventHandlerContext eff props state result) -> Props TouchableHighlight
 ```
 
 #### `onShowUnderlay`
 
 ``` purescript
-onShowUnderlay :: forall eff props state result. (Event -> EventHandlerContext eff props state result) -> Props
+onShowUnderlay :: forall eff props state result. (Event -> EventHandlerContext eff props state result) -> Props TouchableHighlight
 ```
 
 
