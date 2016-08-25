@@ -12,27 +12,27 @@ foreign import data ToolbarAndroid :: *
 foreign import toolbarAndroidClass :: ReactClass (Props ToolbarAndroid)
 
 -- | Create a `ToolbarAndroid` component with props and children.
-toolbarAndroid :: Array Action -> Array (Props ToolbarAndroid) -> ReactElement
+toolbarAndroid :: Array ToolbarAction -> Array (Props ToolbarAndroid) -> ReactElement
 toolbarAndroid actions' props = createElement toolbarAndroidClass props' []
   where
     props' = unsafeFromPropsArray $ props <> [actions actions']
 
-data ActionShow = Always | IfRoom | Never
+data ToolbarActionShow = Always | IfRoom | Never
 
-instance showActionShow :: Show ActionShow where
+instance showActionShow :: Show ToolbarActionShow where
   show Always = "always"
   show IfRoom = "ifRoom"
   show Never = "never"
 
-type Action =
+type ToolbarAction =
   { title :: String
   , icon :: Maybe ImageSource
-  , show :: Maybe ActionShow
+  , show :: Maybe ToolbarActionShow
   , showWithText :: Maybe Boolean
   }
 
 -- Props
-actions :: Array Action -> Props ToolbarAndroid
+actions :: Array ToolbarAction -> Props ToolbarAndroid
 actions = unsafeMkProps "actions" <<< map convertAction
   where
     convertAction a =
