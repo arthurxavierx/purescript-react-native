@@ -127,3 +127,9 @@ onChangeText = unsafeMkProps "onChangeText" <<< handle
 
 onFocus :: ∀ eff props state result. (Event -> EventHandlerContext eff props state result) -> Props TextInput
 onFocus = unsafeMkProps "onFocus" <<< handle
+
+onEndEditing :: ∀ eff props state result. (Event -> EventHandlerContext eff props state result) -> Props TextInput
+onEndEditing = unsafeMkProps "onEndEditing" <<< handle
+
+onSubmitEditing :: ∀ eff props state result. (Event -> EventHandlerContext eff props state result) -> Props TextInput
+onSubmitEditing = unsafeMkProps "onSubmitEditing" <<< handle
