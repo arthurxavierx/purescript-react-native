@@ -12,7 +12,6 @@ type Route state props =
   , title :: String
   , sceneConfig :: SceneConfig
   , component :: ReactClass props
-  , passProps :: props
   }
 
 -- SceneConfig
