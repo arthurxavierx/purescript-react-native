@@ -194,4 +194,16 @@ onChangeText :: forall eff props state result. (String -> EventHandlerContext ef
 onFocus :: forall eff props state result. (Event -> EventHandlerContext eff props state result) -> Props TextInput
 ```
 
+#### `onEndEditing`
+
+``` purescript
+onEndEditing :: forall eff props state result. (Event -> EventHandlerContext eff props state result) -> Props TextInput
+```
+
+#### `onSubmitEditing`
+
+``` purescript
+onSubmitEditing :: forall eff props state result. (Event -> EventHandlerContext eff props state result) -> Props TextInput
+```
+
 

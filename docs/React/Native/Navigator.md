@@ -81,18 +81,6 @@ _navigationBar :: forall props. ReactClass props -> Props Navigator
 _navigator :: forall a. ReactElement -> Props a
 ```
 
-#### `onDidFocus`
-
-``` purescript
-onDidFocus :: forall eff props state result. (Route state props -> EventHandlerContext eff props state result) -> Props Navigator
-```
-
-#### `onWillFocus`
-
-``` purescript
-onWillFocus :: forall eff props state result. (Route state props -> EventHandlerContext eff props state result) -> Props Navigator
-```
-
 #### `RenderScene`
 
 ``` purescript
@@ -109,6 +97,18 @@ renderScene :: forall state props. RenderScene state props -> Props Navigator
 
 ``` purescript
 sceneStyle :: Array (Props Style) -> Props Navigator
+```
+
+#### `onDidFocus`
+
+``` purescript
+onDidFocus :: forall eff props state result. (Route state props -> EventHandlerContext eff props state result) -> Props Navigator
+```
+
+#### `onWillFocus`
+
+``` purescript
+onWillFocus :: forall eff props state result. (Route state props -> EventHandlerContext eff props state result) -> Props Navigator
 ```
 
 #### `immediatelyResetRouteStack`

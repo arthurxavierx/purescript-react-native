@@ -9,7 +9,7 @@ type InitialRoute state = { index :: state, title :: String }
 #### `Route`
 
 ``` purescript
-type Route state props = { index :: state, title :: String, sceneConfig :: SceneConfig, component :: ReactClass props, passProps :: props }
+type Route state props = { index :: state, title :: String, sceneConfig :: SceneConfig, component :: ReactClass props }
 ```
 
 #### `SceneConfig`
