@@ -124,6 +124,10 @@ unsafeFromPropsArray :: forall a. Array (Props a) -> Props a
 
 ``` purescript
 data LineBreakMode
+  = LineBreakHead
+  | LineBreakMiddle
+  | LineBreakTail
+  | LineBreakClip
 ```
 
 ##### Instances
@@ -167,6 +171,11 @@ allowFontScaling :: Boolean -> Props Text
 
 ``` purescript
 data ReturnKeyType
+  = ReturnKeyDone
+  | ReturnKeyGo
+  | ReturnKeyNext
+  | ReturnKeySearch
+  | ReturnKeySend
 ```
 
 ##### Instances
@@ -178,6 +187,18 @@ Show ReturnKeyType
 
 ``` purescript
 data KeyboardType
+  = KeyboardDefault
+  | KeyboardEmailAddress
+  | KeyboardNumeric
+  | KeyboardPhonePad
+  | KeyboardAsciiCapable
+  | KeyboardNumbers
+  | KeyboardUrl
+  | KeyboardNumberPad
+  | KeyboardNamePhonePad
+  | KeyboardDecimalPad
+  | KeyboardTwitter
+  | KeyboardWebSearch
 ```
 
 ##### Instances
@@ -189,6 +210,10 @@ Show KeyboardType
 
 ``` purescript
 data AutoCapitalize
+  = AutoCapitalizeNone
+  | AutoCapitalizeSentences
+  | AutoCapitalizeWords
+  | AutoCapitalizeCharacters
 ```
 
 ##### Instances
@@ -293,6 +318,26 @@ autoCapitalize :: AutoCapitalize -> Props TextInput
 ```
 
 ### Re-exported from React.Native.ToolbarAndroid:
+
+#### `ToolbarActionShow`
+
+``` purescript
+data ToolbarActionShow
+  = Always
+  | IfRoom
+  | Never
+```
+
+##### Instances
+``` purescript
+Show ToolbarActionShow
+```
+
+#### `ToolbarAction`
+
+``` purescript
+type ToolbarAction = { title :: String, icon :: Maybe ImageSource, show :: Maybe ToolbarActionShow, showWithText :: Maybe Boolean }
+```
 
 #### `titleColor`
 
@@ -406,6 +451,10 @@ activeOpacity :: Number -> Props TouchableHighlight
 
 ``` purescript
 data PointerEvent
+  = PointerEventAuto
+  | PointerEventNone
+  | PointerEventBoxOnly
+  | PointerEventBoxNone
 ```
 
 ##### Instances
