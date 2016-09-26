@@ -17,6 +17,7 @@ import React.Native.ToolbarAndroid (toolbarAndroid, ToolbarAndroid) as Component
 import React.Native.Touchable (class Touchable) as Components
 import React.Native.TouchableHighlight (touchableHighlight, TouchableHighlight) as Components
 import React.Native.TouchableWithoutFeedback (touchableWithoutFeedback, TouchableWithoutFeedback) as Components
+import React.Native.View (view, View) as Components
 
 foreign import platformName :: String
 

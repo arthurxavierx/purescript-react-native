@@ -23,6 +23,7 @@ import React.Native.ToolbarAndroid (actions, contentInsetEnd, contentInsetStart
                                    , subtitleColor, title, titleColor) as Props
 import React.Native.Touchable (disabled, delayLongPress, delayPressIn, delayPressOut) as Props
 import React.Native.TouchableHighlight (activeOpacity, underlayColor) as Props
+import React.Native.View (hitSlop, pointerEvents, PointerEvent, removeClippedSubviews, collapsable) as Props
 
 testID :: ∀ a. String -> Props.Props a
 testID = Props.unsafeMkProps "testID"

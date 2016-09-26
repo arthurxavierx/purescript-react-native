@@ -2,7 +2,7 @@ module React.Native.View where
 
 import Prelude
 import React (createElement, ReactElement, ReactClass)
-import React.Native.Props (unsafeFromPropsArray, unsafeMkProps, Props)
+import React.Native.Props.Type (unsafeFromPropsArray, unsafeMkProps, Props)
 
 foreign import data View :: *
 foreign import viewClass :: ReactClass (Props View)

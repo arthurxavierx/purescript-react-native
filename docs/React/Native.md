@@ -205,3 +205,20 @@ touchableWithoutFeedback :: Array (Props TouchableWithoutFeedback) -> ReactEleme
 
 Create a `TouchableWithoutFeedback` component with props and children.
 
+### Re-exported from React.Native.View:
+
+#### `View`
+
+``` purescript
+data View :: *
+```
+
+#### `view`
+
+``` purescript
+view :: Array (Props View) -> Array ReactElement -> ReactElement
+```
+
+Create a `View` element from an array of `Props` and an array
+of children `ReactElement`.
+

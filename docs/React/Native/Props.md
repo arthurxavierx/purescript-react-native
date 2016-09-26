@@ -400,3 +400,40 @@ underlayColor :: Color -> Props TouchableHighlight
 activeOpacity :: Number -> Props TouchableHighlight
 ```
 
+### Re-exported from React.Native.View:
+
+#### `PointerEvent`
+
+``` purescript
+data PointerEvent
+```
+
+##### Instances
+``` purescript
+Show PointerEvent
+```
+
+#### `removeClippedSubviews`
+
+``` purescript
+removeClippedSubviews :: Boolean -> Props View
+```
+
+#### `pointerEvents`
+
+``` purescript
+pointerEvents :: PointerEvent -> Props View
+```
+
+#### `hitSlop`
+
+``` purescript
+hitSlop :: forall a. { top :: Number, left :: Number, bottom :: Number, right :: Number | a } -> Props View
+```
+
+#### `collapsable`
+
+``` purescript
+collapsable :: Boolean -> Props View
+```
+
