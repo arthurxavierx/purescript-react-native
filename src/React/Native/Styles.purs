@@ -2,7 +2,7 @@ module React.Native.Styles where
 
 import Prelude
 import Color (toHexString, Color)
-import React.Native.Props (Props, unsafeFromPropsArray, unsafeMkProps)
+import React.Native.Props.Type (Props, unsafeFromPropsArray, unsafeMkProps)
 
 foreign import data Style :: *
 

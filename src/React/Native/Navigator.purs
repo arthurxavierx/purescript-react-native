@@ -6,7 +6,7 @@ import Control.Monad.Eff (Eff)
 import Data.Function.Uncurried (mkFn2)
 import React (createElement, handle, EventHandlerContext, ReactElement, ReactClass)
 import React.Native.Navigator.Route (SceneConfig, Route, InitialRoute)
-import React.Native.Props (unsafeFromPropsArray, unsafeMkProps, Props)
+import React.Native.Props.Type (unsafeFromPropsArray, unsafeMkProps, Props)
 import React.Native.Styles (Style)
 
 foreign import navigatorClass :: ReactClass (Props Navigator)
@@ -47,12 +47,6 @@ _navigationBar = unsafeMkProps "navigationBar"
 _navigator :: ∀ a. ReactElement -> Props a
 _navigator = unsafeMkProps "navigator"
 
-onDidFocus :: ∀ eff props state result. (Route state props -> EventHandlerContext eff props state result) -> Props Navigator
-onDidFocus = unsafeMkProps "onDidFocus" <<< handle
-
-onWillFocus :: ∀ eff props state result. (Route state props -> EventHandlerContext eff props state result) -> Props Navigator
-onWillFocus = unsafeMkProps "onWillFocus" <<< handle
-
 type RenderScene state props = Route state props -> Navigator -> ReactElement
 
 renderScene :: ∀ state props. RenderScene state props -> Props Navigator
@@ -60,6 +54,13 @@ renderScene = unsafeMkProps "renderScene" <<< mkFn2
 
 sceneStyle :: Array (Props Style) -> Props Navigator
 sceneStyle = unsafeMkProps "sceneStyle" <<< unsafeFromPropsArray
+
+-- Events
+onDidFocus :: ∀ eff props state result. (Route state props -> EventHandlerContext eff props state result) -> Props Navigator
+onDidFocus = unsafeMkProps "onDidFocus" <<< handle
+
+onWillFocus :: ∀ eff props state result. (Route state props -> EventHandlerContext eff props state result) -> Props Navigator
+onWillFocus = unsafeMkProps "onWillFocus" <<< handle
 
 -- Methods
 -- | Reset every scene with an array of routes.

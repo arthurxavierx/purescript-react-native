@@ -1,4 +1,4 @@
-// module React.Native.Props
+'use strict';
 
 exports.unsafeMkProps = function(name) {
   return function(props) {

@@ -2,7 +2,7 @@ module React.Native.Touchable where
 
 import Prelude
 import React (handle, EventHandlerContext, Event)
-import React.Native.Props (Props, unsafeMkProps)
+import React.Native.Props.Type (Props, unsafeMkProps)
 
 class Touchable a
 

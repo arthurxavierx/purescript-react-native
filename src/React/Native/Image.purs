@@ -2,7 +2,7 @@ module React.Native.Image where
 
 import Prelude
 import React (createElement, EventHandlerContext, Event, handle, ReactElement, ReactClass)
-import React.Native.Props (unsafeFromPropsArray, unsafeMkProps, Props)
+import React.Native.Props.Type (unsafeFromPropsArray, unsafeMkProps, Props)
 
 foreign import data Image :: *
 foreign import imageClass :: ReactClass (Props Image)

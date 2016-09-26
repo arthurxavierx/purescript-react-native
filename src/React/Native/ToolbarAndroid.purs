@@ -6,7 +6,7 @@ import Data.Maybe (Maybe)
 import Data.Undefinable (Undefinable, toMaybe, toUndefinable)
 import React (createElement, Event, handle, EventHandlerContext, ReactClass, ReactElement)
 import React.Native.Image (ImageSource)
-import React.Native.Props (unsafeMkProps, unsafeFromPropsArray, Props)
+import React.Native.Props.Type (unsafeMkProps, unsafeFromPropsArray, Props)
 
 foreign import data ToolbarAndroid :: *
 foreign import toolbarAndroidClass :: ReactClass (Props ToolbarAndroid)

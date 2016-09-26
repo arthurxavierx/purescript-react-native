@@ -3,11 +3,20 @@ module React.Native
   , Platform(..)
   , platform
   , registerComponent
+  , module Components
   ) where
 
 import Prelude
 import Control.Monad.Eff (Eff)
 import React (ReactClass)
+import React.Native.Image (image, Image) as Components
+import React.Native.Navigator (navigator, navigationBar, Navigator, NavigationBar, NAVIGATION) as Components
+import React.Native.Text (text, textView, Text) as Components
+import React.Native.TextInput (textInput, TextInput) as Components
+import React.Native.ToolbarAndroid (toolbarAndroid, ToolbarAndroid) as Components
+import React.Native.Touchable (class Touchable) as Components
+import React.Native.TouchableHighlight (touchableHighlight, TouchableHighlight) as Components
+import React.Native.TouchableWithoutFeedback (touchableWithoutFeedback, TouchableWithoutFeedback) as Components
 
 foreign import platformName :: String
 

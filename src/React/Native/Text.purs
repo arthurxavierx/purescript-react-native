@@ -2,7 +2,7 @@ module React.Native.Text where
 
 import Prelude
 import React (ReactElement, ReactClass, createElement)
-import React.Native.Props (unsafeFromPropsArray, unsafeMkProps, Props)
+import React.Native.Props.Type (unsafeFromPropsArray, unsafeMkProps, Props)
 import React.Native.Touchable (class Touchable)
 import Unsafe.Coerce (unsafeCoerce)
 

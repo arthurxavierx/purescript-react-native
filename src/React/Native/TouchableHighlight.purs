@@ -4,7 +4,7 @@ import Prelude
 import Color (Color, toHexString)
 import Data.Array (singleton)
 import React (createElement, handle, EventHandlerContext, Event, ReactElement, ReactClass)
-import React.Native.Props (unsafeFromPropsArray, unsafeMkProps, Props)
+import React.Native.Props.Type (unsafeFromPropsArray, unsafeMkProps, Props)
 import React.Native.Touchable (class Touchable)
 
 foreign import data TouchableHighlight :: *

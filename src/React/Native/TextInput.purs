@@ -3,7 +3,7 @@ module React.Native.TextInput where
 import Prelude
 import Color (toHexString, Color)
 import React (createElement, EventHandlerContext, Event, handle, ReactElement, ReactClass)
-import React.Native.Props (unsafeFromPropsArray, unsafeMkProps, Props)
+import React.Native.Props.Type (unsafeFromPropsArray, unsafeMkProps, Props)
 
 foreign import data TextInput :: *
 foreign import textInputClass :: ∀ props. ReactClass props
