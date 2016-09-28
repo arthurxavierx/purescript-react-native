@@ -3,6 +3,7 @@ module React.Native.View where
 import Prelude
 import React (createElement, ReactElement, ReactClass)
 import React.Native.Props.Type (unsafeFromPropsArray, unsafeMkProps, Props)
+import Unsafe.Coerce (unsafeCoerce)
 
 foreign import data View :: *
 foreign import viewClass :: ReactClass (Props View)
@@ -11,6 +12,9 @@ foreign import viewClass :: ReactClass (Props View)
 -- | of children `ReactElement`.
 view :: Array (Props View) -> Array ReactElement -> ReactElement
 view = createElement viewClass <<< unsafeFromPropsArray
+
+view' :: Array ReactElement -> ReactElement
+view' children = createElement viewClass (unsafeCoerce {}) children
 
 -- Props
 hitSlop ::

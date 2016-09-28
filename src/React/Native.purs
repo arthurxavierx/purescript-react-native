@@ -9,15 +9,15 @@ module React.Native
 import Prelude
 import Control.Monad.Eff (Eff)
 import React (ReactClass)
-import React.Native.Image (image, Image) as Components
-import React.Native.Navigator (navigator, navigationBar, Navigator, NavigationBar, NAVIGATION) as Components
-import React.Native.Text (text, textView, Text) as Components
-import React.Native.TextInput (textInput, TextInput) as Components
-import React.Native.ToolbarAndroid (toolbarAndroid, ToolbarAndroid) as Components
+import React.Native.Image (image, image', Image) as Components
+import React.Native.Navigator (navigator, navigator', navigationBar, Navigator, NavigationBar, NAVIGATION) as Components
+import React.Native.Text (text, text', textView, textView', Text) as Components
+import React.Native.TextInput (textInput, textInput', TextInput) as Components
+import React.Native.ToolbarAndroid (toolbarAndroid, toolbarAndroid', ToolbarAndroid) as Components
 import React.Native.Touchable (class Touchable) as Components
-import React.Native.TouchableHighlight (touchableHighlight, TouchableHighlight) as Components
-import React.Native.TouchableWithoutFeedback (touchableWithoutFeedback, TouchableWithoutFeedback) as Components
-import React.Native.View (view, View) as Components
+import React.Native.TouchableHighlight (touchableHighlight, touchableHighlight', TouchableHighlight) as Components
+import React.Native.TouchableWithoutFeedback (touchableWithoutFeedback, touchableWithoutFeedback', TouchableWithoutFeedback) as Components
+import React.Native.View (view, view', View) as Components
 
 foreign import platformName :: String
 

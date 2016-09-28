@@ -25,6 +25,11 @@ navigator render route props = Navigator $ createElement navigatorClass props' [
   where
     props' = unsafeFromPropsArray $ props <> [renderScene render, initialRoute route]
 
+navigator' :: ∀ state props. RenderScene state props -> InitialRoute state -> Navigator
+navigator' render route = Navigator $ createElement navigatorClass props []
+  where
+    props = unsafeFromPropsArray [renderScene render, initialRoute route]
+
 foreign import data NavigationBar :: *
 
 -- | Create a `NavigationBar` component with props.

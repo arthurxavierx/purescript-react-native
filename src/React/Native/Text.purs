@@ -16,9 +16,15 @@ foreign import textClass :: ∀ props. ReactClass props
 textView :: Array (Props Text) -> Array ReactElement -> ReactElement
 textView = createElement textClass <<< unsafeFromPropsArray
 
+textView' :: Array ReactElement -> ReactElement
+textView' children = createElement textClass (unsafeCoerce {}) children
+
 -- | Create a `TextView` element with props from a String.
 text :: Array (Props Text) -> String -> ReactElement
 text props str = textView props [unsafeCoerce str]
+
+text' :: String -> ReactElement
+text' str = textView' [unsafeCoerce str]
 
 -- Props
 data LineBreakMode

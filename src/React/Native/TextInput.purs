@@ -4,6 +4,7 @@ import Prelude
 import Color (toHexString, Color)
 import React (createElement, EventHandlerContext, Event, handle, ReactElement, ReactClass)
 import React.Native.Props.Type (unsafeFromPropsArray, unsafeMkProps, Props)
+import Unsafe.Coerce (unsafeCoerce)
 
 foreign import data TextInput :: *
 foreign import textInputClass :: ∀ props. ReactClass props
@@ -11,6 +12,9 @@ foreign import textInputClass :: ∀ props. ReactClass props
 -- | Create a `TextInput` element with props and no child elements.
 textInput :: Array (Props TextInput) -> ReactElement
 textInput props = createElement textInputClass (unsafeFromPropsArray props) []
+
+textInput' :: ReactElement
+textInput' = createElement textInputClass (unsafeCoerce {}) []
 
 -- Props
 data AutoCapitalize

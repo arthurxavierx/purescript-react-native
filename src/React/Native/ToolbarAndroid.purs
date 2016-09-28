@@ -17,6 +17,11 @@ toolbarAndroid actions' props = createElement toolbarAndroidClass props' []
   where
     props' = unsafeFromPropsArray $ props <> [actions actions']
 
+toolbarAndroid' :: Array ToolbarAction -> ReactElement
+toolbarAndroid' actions' = createElement toolbarAndroidClass props []
+  where
+    props = unsafeFromPropsArray [actions actions']
+
 data ToolbarActionShow = Always | IfRoom | Never
 
 instance showActionShow :: Show ToolbarActionShow where

@@ -6,6 +6,7 @@ import Data.Array (singleton)
 import React (createElement, handle, EventHandlerContext, Event, ReactElement, ReactClass)
 import React.Native.Props.Type (unsafeFromPropsArray, unsafeMkProps, Props)
 import React.Native.Touchable (class Touchable)
+import Unsafe.Coerce (unsafeCoerce)
 
 foreign import data TouchableHighlight :: *
 instance touchableTouchableHighlight :: Touchable TouchableHighlight
@@ -15,6 +16,9 @@ foreign import touchableHighlightClass :: ReactClass (Props TouchableHighlight)
 -- | Create a `TouchableHighlight` component with props and children.
 touchableHighlight :: Array (Props TouchableHighlight) -> ReactElement -> ReactElement
 touchableHighlight props child = createElement touchableHighlightClass (unsafeFromPropsArray props) (singleton child)
+
+touchableHighlight' :: ReactElement -> ReactElement
+touchableHighlight' child = createElement touchableHighlightClass (unsafeCoerce {}) (singleton child)
 
 -- Props
 activeOpacity :: Number -> Props TouchableHighlight
