@@ -21,6 +21,12 @@ view :: Array (Props View) -> Array ReactElement -> ReactElement
 Create a `View` element from an array of `Props` and an array
 of children `ReactElement`.
 
+#### `view'`
+
+``` purescript
+view' :: Array ReactElement -> ReactElement
+```
+
 #### `hitSlop`
 
 ``` purescript

@@ -20,6 +20,12 @@ textInput :: Array (Props TextInput) -> ReactElement
 
 Create a `TextInput` element with props and no child elements.
 
+#### `textInput'`
+
+``` purescript
+textInput' :: ReactElement
+```
+
 #### `AutoCapitalize`
 
 ``` purescript

@@ -25,4 +25,10 @@ touchableWithoutFeedback :: Array (Props TouchableWithoutFeedback) -> ReactEleme
 
 Create a `TouchableWithoutFeedback` component with props and children.
 
+#### `touchableWithoutFeedback'`
+
+``` purescript
+touchableWithoutFeedback' :: ReactElement -> ReactElement
+```
+
 

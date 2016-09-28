@@ -45,6 +45,12 @@ so it can be accessed from the native platform.
 data Image :: *
 ```
 
+#### `image'`
+
+``` purescript
+image' :: ReactElement
+```
+
 #### `image`
 
 ``` purescript
@@ -76,6 +82,12 @@ data NAVIGATION :: !
 This effect reprents computations that modify the navigation state of
 the application.
 
+#### `navigator'`
+
+``` purescript
+navigator' :: forall state props. RenderScene state props -> InitialRoute state -> Navigator
+```
+
 #### `navigator`
 
 ``` purescript
@@ -106,6 +118,12 @@ data Text :: *
 Touchable Text
 ```
 
+#### `textView'`
+
+``` purescript
+textView' :: Array ReactElement -> ReactElement
+```
+
 #### `textView`
 
 ``` purescript
@@ -114,6 +132,12 @@ textView :: Array (Props Text) -> Array ReactElement -> ReactElement
 
 Create a `TextView` element from an array of `Props` and an array
 of children `ReactElement`.
+
+#### `text'`
+
+``` purescript
+text' :: String -> ReactElement
+```
 
 #### `text`
 
@@ -131,6 +155,12 @@ Create a `TextView` element with props from a String.
 data TextInput :: *
 ```
 
+#### `textInput'`
+
+``` purescript
+textInput' :: ReactElement
+```
+
 #### `textInput`
 
 ``` purescript
@@ -145,6 +175,12 @@ Create a `TextInput` element with props and no child elements.
 
 ``` purescript
 data ToolbarAndroid :: *
+```
+
+#### `toolbarAndroid'`
+
+``` purescript
+toolbarAndroid' :: Array ToolbarAction -> ReactElement
 ```
 
 #### `toolbarAndroid`
@@ -176,6 +212,12 @@ data TouchableHighlight :: *
 Touchable TouchableHighlight
 ```
 
+#### `touchableHighlight'`
+
+``` purescript
+touchableHighlight' :: ReactElement -> ReactElement
+```
+
 #### `touchableHighlight`
 
 ``` purescript
@@ -197,6 +239,12 @@ data TouchableWithoutFeedback :: *
 Touchable TouchableWithoutFeedback
 ```
 
+#### `touchableWithoutFeedback'`
+
+``` purescript
+touchableWithoutFeedback' :: ReactElement -> ReactElement
+```
+
 #### `touchableWithoutFeedback`
 
 ``` purescript
@@ -211,6 +259,12 @@ Create a `TouchableWithoutFeedback` component with props and children.
 
 ``` purescript
 data View :: *
+```
+
+#### `view'`
+
+``` purescript
+view' :: Array ReactElement -> ReactElement
 ```
 
 #### `view`

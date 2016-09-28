@@ -20,6 +20,12 @@ image :: Array (Props Image) -> ReactElement
 
 Create an `Image` element with props and no child elements.
 
+#### `image'`
+
+``` purescript
+image' :: ReactElement
+```
+
 #### `ImageSource`
 
 ``` purescript

@@ -20,6 +20,12 @@ toolbarAndroid :: Array ToolbarAction -> Array (Props ToolbarAndroid) -> ReactEl
 
 Create a `ToolbarAndroid` component with props and children.
 
+#### `toolbarAndroid'`
+
+``` purescript
+toolbarAndroid' :: Array ToolbarAction -> ReactElement
+```
+
 #### `ToolbarActionShow`
 
 ``` purescript

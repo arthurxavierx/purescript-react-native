@@ -25,6 +25,12 @@ touchableHighlight :: Array (Props TouchableHighlight) -> ReactElement -> ReactE
 
 Create a `TouchableHighlight` component with props and children.
 
+#### `touchableHighlight'`
+
+``` purescript
+touchableHighlight' :: ReactElement -> ReactElement
+```
+
 #### `activeOpacity`
 
 ``` purescript

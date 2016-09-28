@@ -37,6 +37,12 @@ navigator :: forall state props. RenderScene state props -> InitialRoute state -
 Create a `Navigator` component from a `RenderScene` function,
 an initial `Route` and an array of `Props`.
 
+#### `navigator'`
+
+``` purescript
+navigator' :: forall state props. RenderScene state props -> InitialRoute state -> Navigator
+```
+
 #### `NavigationBar`
 
 ``` purescript

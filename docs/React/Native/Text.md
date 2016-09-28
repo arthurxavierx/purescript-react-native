@@ -26,6 +26,12 @@ textView :: Array (Props Text) -> Array ReactElement -> ReactElement
 Create a `TextView` element from an array of `Props` and an array
 of children `ReactElement`.
 
+#### `textView'`
+
+``` purescript
+textView' :: Array ReactElement -> ReactElement
+```
+
 #### `text`
 
 ``` purescript
@@ -33,6 +39,12 @@ text :: Array (Props Text) -> String -> ReactElement
 ```
 
 Create a `TextView` element with props from a String.
+
+#### `text'`
+
+``` purescript
+text' :: String -> ReactElement
+```
 
 #### `LineBreakMode`
 
